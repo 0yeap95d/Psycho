@@ -19,3 +19,27 @@ class StoreViewSet(viewsets.ModelViewSet):
             models.Store.objects.all().filter(store_name__contains=name).order_by("id")
         )
         return queryset
+
+
+class ReviewViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.ReviewSerializer
+    pagination_class = SmallPagination
+
+    def get_queryset(self):
+        store_id = self.request.query_params.get("store_id", "")
+        queryset = (
+            models.Review.objects.all().filter(store__exact=store_id).order_by("rid")
+        )
+        return queryset
+
+
+class HotelViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.HotelSerializer
+    pagination_class = SmallPagination
+
+    def get_queryset(self):
+        location = self.request.query_params.get("location", "")
+        queryset = (
+            models.Hotel.objects.all().filter(address1__contains=location).order_by("id")
+        )
+        return queryset
