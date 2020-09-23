@@ -7,5 +7,11 @@ export default {
     return axios.get(`${apiUrl}/stores`, {
       params
     });
+  },
+
+  getNews(params) {
+    return axios.get(`${apiUrl}/news`, {
+      params
+    })
   }
 };
