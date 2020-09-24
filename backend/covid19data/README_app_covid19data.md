@@ -12,52 +12,52 @@
 
     - 보건복지부 코로나19 시·도발생 현황
 
-      - http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=(YOUR_API_KEY)&pageNo=1&numOfRows=1&startCreateDt=20200923&endCreateDt=20200923&
+    - http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=(YOUR_API_KEY)&pageNo=1&numOfRows=1&startCreateDt=20200923&endCreateDt=20200923&
 
-      - 매일 오전 10시 경 갱신
+    - 매일 오전 10시 경 갱신
 
-      - 구분 필드[검역, 제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원, 경기, 세종, 울산, 대전, 광주, 인천, 대구, 부산, 서울, 합계] 19개
+    - 구분 필드[검역, 제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원, 경기, 세종, 울산, 대전, 광주, 인천, 대구, 부산, 서울, 합계] 19개
 
-      - 샘플 데이터
+    - 샘플 데이터
 
-        ```json
-        <createDt>2020-09-23 10:11:17.386</createDt>
-        <deathCnt>0</deathCnt>
-        <defCnt>1459</defCnt>
-        <gubun>검역</gubun>
-        <gubunCn>隔離區</gubunCn>
-        <gubunEn>Lazaretto</gubunEn>
-        <incDec>6</incDec>
-        <isolClearCnt>1366</isolClearCnt>
-        <isolIngCnt>93</isolIngCnt>
-        <localOccCnt>0</localOccCnt>
-        <overFlowCnt>6</overFlowCnt>
-        <qurRate>-</qurRate>
-        <seq>4510</seq>
-        <stdDay>2020년 09월 23일 00시</stdDay>
-        <updateDt>null</updateDt>
-        ```
+      ```json
+      <createDt>2020-09-23 10:11:17.386</createDt>
+      <deathCnt>0</deathCnt>
+      <defCnt>1459</defCnt>
+      <gubun>검역</gubun>
+      <gubunCn>隔離區</gubunCn>
+      <gubunEn>Lazaretto</gubunEn>
+      <incDec>6</incDec>
+      <isolClearCnt>1366</isolClearCnt>
+      <isolIngCnt>93</isolIngCnt>
+      <localOccCnt>0</localOccCnt>
+      <overFlowCnt>6</overFlowCnt>
+      <qurRate>-</qurRate>
+      <seq>4510</seq>
+      <stdDay>2020년 09월 23일 00시</stdDay>
+      <updateDt>null</updateDt>
+      ```
 
-      - #### 출력결과(Response Element)
+    - #### 출력결과(Response Element)
 
-        |              항목명(국문)               |  항목명(영문)  | 항목크기 | 항목구분 |       샘플데이터        |                항목설명                 |
-        | :-------------------------------------: | :------------: | :------: | :------: | :---------------------: | :-------------------------------------: |
-        |                결과코드                 |   resultCode   |    2     |   필수   |           00            |                결과코드                 |
-        |               결과메시지                |   resultMsg    |    50    |   필수   |           OK            |               결과메시지                |
-        |            한 페이지 결과 수            |   numOfRows    |    4     |   필수   |           10            |            한 페이지 결과 수            |
-        |               페이지 번호               |     pageNo     |    4     |   필수   |            1            |               페이지번호                |
-        |              전체 결과 수               |   totalCount   |    4     |   필수   |            3            |              전체 결과 수               |
-        | 게시글번호(국내 시도별 발생현황 고유값) |      SEQ       |    30    |   필수   |           130           | 게시글번호(국내 시도별 발생현황 고유값) |
-        |              등록일시분초               |   CREATE_DT    |    30    |          | 2020-04-10 11:15:59.026 |              등록일시분초               |
-        |                사망자 수                |   DEATH_CNT    |    15    |          |           204           |                사망자 수                |
-        |              시도명(한글)               |     GUBUN      |    30    |          |          부산           |              시도명(한글)               |
-        |             시도명(중국어)              |    GUBUN_CN    |    30    |          |          null           |             시도명(중국어)              |
-        |              시도명(영어)               |    gubunEn     |    30    |          |          null           |              시도명(영어)               |
-        |            전일대비 증감 수             |    INC_DEC     |    15    |          |           39            |            전일대비 증감 수             |
-        |              격리 해제 수               | ISOL_CLEAR_CNT |    15    |          |          6973           |              격리 해제 수               |
-        |             10만명당 발생률             |    QUR_RATE    |    30    |          |          20.10          |             10만명당 발생률             |
-        |                기준일시                 |    STD_DAY     |    30    |          |  2020년 3월 13일 00시   |                기준일시                 |
-        |              수정일시분초               |   UPDATE_DT    |    30    |          |          null           |              수정일시분초               |
+      |              항목명(국문)               |  항목명(영문)  | 항목크기 | 항목구분 |       샘플데이터        |                항목설명                 |
+      | :-------------------------------------: | :------------: | :------: | :------: | :---------------------: | :-------------------------------------: |
+      |                결과코드                 |   resultCode   |    2     |   필수   |           00            |                결과코드                 |
+      |               결과메시지                |   resultMsg    |    50    |   필수   |           OK            |               결과메시지                |
+      |            한 페이지 결과 수            |   numOfRows    |    4     |   필수   |           10            |            한 페이지 결과 수            |
+      |               페이지 번호               |     pageNo     |    4     |   필수   |            1            |               페이지번호                |
+      |              전체 결과 수               |   totalCount   |    4     |   필수   |            3            |              전체 결과 수               |
+      | 게시글번호(국내 시도별 발생현황 고유값) |      SEQ       |    30    |   필수   |           130           | 게시글번호(국내 시도별 발생현황 고유값) |
+      |              등록일시분초               |   CREATE_DT    |    30    |          | 2020-04-10 11:15:59.026 |              등록일시분초               |
+      |                사망자 수                |   DEATH_CNT    |    15    |          |           204           |                사망자 수                |
+      |              시도명(한글)               |     GUBUN      |    30    |          |          부산           |              시도명(한글)               |
+      |             시도명(중국어)              |    GUBUN_CN    |    30    |          |          null           |             시도명(중국어)              |
+      |              시도명(영어)               |    gubunEn     |    30    |          |          null           |              시도명(영어)               |
+      |            전일대비 증감 수             |    INC_DEC     |    15    |          |           39            |            전일대비 증감 수             |
+      |              격리 해제 수               | ISOL_CLEAR_CNT |    15    |          |          6973           |              격리 해제 수               |
+      |             10만명당 발생률             |    QUR_RATE    |    30    |          |          20.10          |             10만명당 발생률             |
+      |                기준일시                 |    STD_DAY     |    30    |          |  2020년 3월 13일 00시   |                기준일시                 |
+      |              수정일시분초               |   UPDATE_DT    |    30    |          |          null           |              수정일시분초               |
 
   - ## 보건복지부 코로나19 감염 현황
 
@@ -128,24 +128,24 @@
       <updateDt>null</updateDt>
       ```
 
-      - #### 출력결과(Response Element)
+    - #### 출력결과(Response Element)
 
-        |             항목명(국문)              |  항목명(영문)  | 항목크기 | 항목구분 |       샘플데이터        |               항목설명                |
-        | :-----------------------------------: | :------------: | :------: | :------: | :---------------------: | :-----------------------------------: |
-        |               결과코드                |   resultCode   |    2     |   필수   |           00            |               결과코드                |
-        |              결과메시지               |   resultMsg    |    50    |   필수   |           OK            |              결과메시지               |
-        |           한 페이지 결과 수           |   numOfRows    |    4     |   필수   |           10            |           한 페이지 결과 수           |
-        |              페이지 번호              |     pageNo     |    4     |   필수   |            1            |              페이지번호               |
-        |             전체 결과 수              |   totalCount   |    4     |   필수   |            3            |             전체 결과 수              |
-        | 게시글번호(확진자 성별,연령별 고유값) |      SEQ       |    30    |   필수   |           134           | 게시글번호(확진자 성별,연령별 고유값) |
-        |          구분(성별, 연령별)           |     GUBUN      |    30    |   필수   |           0-9           |          구분(성별, 연령별)           |
-        |                확진자                 |   CONF_CASE    |    30    |   필수   |           132           |                확진자                 |
-        |                확진률                 | CONF_CASE_RATE |    30    |   필수   |          1.25           |                확진률                 |
-        |                사망자                 |     DEATH      |    30    |   필수   |            0            |                사망자                 |
-        |                사망률                 |   DEATH_RATE   |    30    |   필수   |          0.00           |                사망률                 |
-        |                치명률                 | CRITICAL_RATE  |    30    |   필수   |            0            |                치명률                 |
-        |             등록일시분초              |   CREATE_DT    |    30    |   필수   | 2020-04-13 10:22:29.663 |             등록일시분초              |
-        |             수정일시분초              |   UPDATE_DT    |    30    |   필수   |          null           |             수정일시분초              |
+      |             항목명(국문)              |  항목명(영문)  | 항목크기 | 항목구분 |       샘플데이터        |               항목설명                |
+      | :-----------------------------------: | :------------: | :------: | :------: | :---------------------: | :-----------------------------------: |
+      |               결과코드                |   resultCode   |    2     |   필수   |           00            |               결과코드                |
+      |              결과메시지               |   resultMsg    |    50    |   필수   |           OK            |              결과메시지               |
+      |           한 페이지 결과 수           |   numOfRows    |    4     |   필수   |           10            |           한 페이지 결과 수           |
+      |              페이지 번호              |     pageNo     |    4     |   필수   |            1            |              페이지번호               |
+      |             전체 결과 수              |   totalCount   |    4     |   필수   |            3            |             전체 결과 수              |
+      | 게시글번호(확진자 성별,연령별 고유값) |      SEQ       |    30    |   필수   |           134           | 게시글번호(확진자 성별,연령별 고유값) |
+      |          구분(성별, 연령별)           |     GUBUN      |    30    |   필수   |           0-9           |          구분(성별, 연령별)           |
+      |                확진자                 |   CONF_CASE    |    30    |   필수   |           132           |                확진자                 |
+      |                확진률                 | CONF_CASE_RATE |    30    |   필수   |          1.25           |                확진률                 |
+      |                사망자                 |     DEATH      |    30    |   필수   |            0            |                사망자                 |
+      |                사망률                 |   DEATH_RATE   |    30    |   필수   |          0.00           |                사망률                 |
+      |                치명률                 | CRITICAL_RATE  |    30    |   필수   |            0            |                치명률                 |
+      |             등록일시분초              |   CREATE_DT    |    30    |   필수   | 2020-04-13 10:22:29.663 |             등록일시분초              |
+      |             수정일시분초              |   UPDATE_DT    |    30    |   필수   |          null           |             수정일시분초              |
 
   - 보건복지부 코로나19 해외발생 현황
 
@@ -186,16 +186,16 @@
     ```
 
     ```python
-        ##############################제공 샘플코드에 추가##############################
-        # - api key decoding
-        # - today
-        import requests
-        from datetime import datetime
-        api_key = "YOUR_API_KEY"
+    ##############################제공 샘플코드에 추가##############################
+    # - api key decoding
+    # - today
+    import requests
+    from datetime import datetime
+    api_key = "YOUR_API_KEY"
 
-        api_key_decode = requests.utils.unquote(api_key) # 키 디코딩
-        today = datetime.today().strftime("%Y%m%d") # 현재날짜 문자열 요청 양식에 맞게 생성
-        ##############################################################################
+    api_key_decode = requests.utils.unquote(api_key) # 키 디코딩
+    today = datetime.today().strftime("%Y%m%d") # 현재날짜 문자열 요청 양식에 맞게 생성
+    ##############################################################################
     ```
 
   - rest api 코드 작성
