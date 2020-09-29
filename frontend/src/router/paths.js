@@ -1,6 +1,11 @@
 export default [
   {
-    path: "",
+    path: "/",
+    view: "Start",
+    name: "start"
+  },
+  {
+    path: "/home",
     view: "Home",
     name: "home"
   },
