@@ -1,16 +1,15 @@
 <template>
   <v-carousel
     cycle
-    height="500"
-    hide-delimiter-background
-    show-arrows-on-hover
+    :height="windowHeight"
+    hide-delimiters
   >
     <v-carousel-item
       v-for="(slide, i) in slides"
       :key="i"
     >
       <v-sheet
-        :color="colors[i]"
+        color="white"
         height="100%"
       >
         <v-row
@@ -18,7 +17,9 @@
           align="center"
           justify="center"
         >
-          <div class="display-3">{{ slide }} Slide</div>
+          <v-img src="../../assets/hero01.png">
+            <div class="display-3">{{ slide }} Slide</div>
+          </v-img>
         </v-row>
       </v-sheet>
     </v-carousel-item>
@@ -29,12 +30,13 @@
   export default {
     data () {
       return {
+        windowHeight: window.innerHeight,
         colors: [
-          'red lighten-3',
-          'indigo lighten-4',
-          'blue lighten-4',
-          'teal lighten-4',
-          'green lighten-4',
+          'indigo',
+          'warning',
+          'pink darken-2',
+          'red lighten-1',
+          'deep-purple accent-4',
         ],
         slides: [
           'First',
@@ -47,3 +49,9 @@
     },
   }
 </script>
+
+<style>
+.v-image__image {
+  opacity: 0.6;
+}
+</style>
