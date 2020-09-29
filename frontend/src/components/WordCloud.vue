@@ -4,6 +4,7 @@
         :data="words" 
         :fontSizeMapper="fontSizeMapper"
         :width="width"
+        :height="height"
     />
   </div>
 </template>
@@ -15,25 +16,25 @@ export default {
     name: 'app',
     data() {
         return {
-            width: 1440,
-            words: [
-                { text: 'Vue', value: 1000 },
-                { text: 'js', value: 200 },
-                { text: 'is', value: 800 },
-                { text: 'very cool', value: 1000000 },
-                { text: 'lunch', value: 100 },
-                { text: 'Vue', value: 1000 },
-                { text: 'js', value: 200 },
-                { text: 'is', value: 800 },
-                { text: 'very cool', value: 1000000 },
-                { text: 'lunch', value: 100 },
-                { text: 'Vue', value: 1000 },
-                { text: 'js', value: 200 },
-                { text: 'is', value: 800 },
-                { text: 'very cool', value: 1000000 },
-                { text: 'lunch', value: 100 },
-            ],
+            width: 1161,
+            height: 600,
+            words:[],
             fontSizeMapper: word => Math.log2(word.value) * 5,
+        }
+    },
+    created() {
+        this.getWordCloud()
+    },
+    methods: {
+        getWordCloud() {
+            let wordList = new Array;
+            d3.csv("insta_keyword.csv", function(error, data) {
+                if(error) throw error;
+                for(var i = 0; i < data.length; i++){
+                    wordList.push({text: data[i].코로나, value: data[i][58] * 100})
+                }
+            });
+            this.words = wordList;
         }
     },
     components: {

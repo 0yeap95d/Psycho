@@ -99,7 +99,7 @@ export default {
         let word = this.items[itemNum].title;
         if (word.length > 8) word = word.slice(0, 8) + "...";
 
-        console.log(word);
+        // console.log(word);
 
         this.searchItem = itemNum + ". " + word;
         itemNum += 1
