@@ -1,31 +1,42 @@
 <template>
-  <v-container class="mt-5" fill-height>
+  <v-container fluid class="pa-0" fill-height>
+    <v-layout column>
+      <v-flex>
+        <!-- 캐러셀 -->
+        <carousels />
+      </v-flex>
 
-    <v-flex class="md8">
-      <KakaoMap></KakaoMap>
-    </v-flex>
+      <v-flex>
+        <!-- 코로나 현재 상태 -->
+        <main-state />
+      </v-flex>
 
-    <v-flex>
-      <v-card-text class="text-center">
-      <p class="display-3 pa-2">🍜</p>
-      <p class="display-2 pa-5">코딩도 식후경</p>
-      <v-btn large color="blue lighten-1 white--text ma-5" rounded to="/search">검색하기</v-btn>
-      </v-card-text>
-      <Graph></Graph>
-      <Graph></Graph>
-    </v-flex>
-    
-    
+      <v-flex>
+        <!-- 페이지 소개 -->
+        <introduce />
+      </v-flex>
+
+      <v-flex>
+        <!-- 뉴스 카드 -->
+        <news-area />
+      </v-flex>
+        
+    </v-layout>
   </v-container>
 </template>
 
 <script>
-import KakaoMap from '../components/KakaoMap'
-import Graph from '../components/Graph'
+import Carousels from '../components/Main/Carousels'
+import MainState from '../components/Main/MainState'
+import Introduce from '../components/Main/Introduce'
+import NewsArea from '../components/Main/NewsArea'
+
 export default {
-  components: { 
-    KakaoMap,
-    Graph,
+  components: {
+    Carousels,
+    MainState,
+    Introduce,
+    NewsArea,
   }
 };
 </script>
