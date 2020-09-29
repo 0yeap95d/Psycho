@@ -13,7 +13,7 @@
             <v-divider class="mb-5" ></v-divider>
             <v-list three-line style="max-height: calc(100vh - 100px)" class="overflow-y-auto">
                 <v-list-item v-for="(item, i) in items" v-bind:key="i">
-                    <img src="./remove.png" height="30px" width="30px">&nbsp;
+                    <img src="../assets/covidRemove.png" height="30px" width="30px">&nbsp;
                     {{item.value}}
                 </v-list-item>
             </v-list>
