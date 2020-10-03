@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class getCovid19InfStateJson(models.Model):  # 코로나 일반 현황
+class Covid19Info(models.Model):  # 코로나 일반 현황
     seq = models.CharField(max_length=200, null=True)  # ID
     stateDt = models.CharField(max_length=200, null=True)  # 기준 일
     stateTime = models.CharField(max_length=200, null=True)  # 기준 시간
@@ -15,23 +15,22 @@ class getCovid19InfStateJson(models.Model):  # 코로나 일반 현황
     clearCnt = models.CharField(max_length=200, null=True)  # 격리해제 수
     accDefRate = models.CharField(max_length=200, null=True)  # 누적 확진률
     deathCnt = models.CharField(max_length=200, null=True)  # 사망자 수
-    # updateDt = models.CharField(max_length=200, null=True)  # 수정일시분초(잘 사용하지 않음)
+    updateDt = models.CharField(max_length=200, null=True)  # 수정일시분초(잘 사용하지 않음)
 
 
-class getCovid19GenAgeCaseInfJson(models.Model):  # 코로나 성별, 연령별 현황
+class Covid19GenAgeInfo(models.Model):  # 코로나 성별, 연령별 현황
     seq = models.CharField(max_length=200, null=True)  # ID
     createDt = models.CharField(max_length=200, null=True)  # 등록일시분초
     gubun = models.CharField(max_length=200, null=True)  # 구분(성별,연령)
     confCase = models.CharField(max_length=200, null=True)  # 확진자
     confCaseRate = models.CharField(max_length=200, null=True)  # 확진률
     death = models.CharField(max_length=200, null=True)  # 사망자
-    criticalRate = models.CharField(
-        max_length=200, null=True)  # 치명률(사망/확진*100)
+    criticalRate = models.CharField(max_length=200, null=True)  # 치명률 사망/확진*100
     deathRate = models.CharField(max_length=200, null=True)  # 사망률(연령별, 성별별)
-    # updateDt = models.CharField(max_length=200, null=True)  # 수정일시분초(잘 사용하지 않음)
+    updateDt = models.CharField(max_length=200, null=True)  # 수정일시분초(잘 사용하지 않음)
 
 
-class getCovid19SidoInfStateJson(models.Model):
+class Covid19SidoInfo(models.Model):  # 코로나 지역별 현황
     seq = models.CharField(max_length=200, null=True)  # ID
     stdDay = models.CharField(max_length=200, null=True)  # 기준일시
     createDt = models.CharField(max_length=200, null=True)  # 등록일시분초
@@ -46,7 +45,7 @@ class getCovid19SidoInfStateJson(models.Model):
     localOccCnt = models.CharField(max_length=200, null=True)  # 지역발생수
     overFlowCnt = models.CharField(max_length=200, null=True)  # 해외유입수
     qurRate = models.CharField(max_length=200, null=True)  # 10만명당발생률
-    # updateDt = models.CharField(max_length=200, null=True)  # 수정일시분초(잘 사용하지 않음)
+    updateDt = models.CharField(max_length=200, null=True)  # 수정일시분초(잘 사용하지 않음)
 
 # class Store(models.Model):
 #     id = models.IntegerField(primary_key=True)

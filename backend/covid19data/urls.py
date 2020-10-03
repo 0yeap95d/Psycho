@@ -19,9 +19,10 @@ from django.urls import path, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from django.contrib import admin
+from .views import *
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('covid19data/', include("covid19data.urls")),
-    path('stores/', include("stores.urls")),
+    path('/Covid19Info', getCovid19Info),
+    path('/Covid19GenAgeInfo', getCovid19GenAgeInfo),
+    path('/Covid19SidoInfo', getCovid19SidoInfo),
 ]

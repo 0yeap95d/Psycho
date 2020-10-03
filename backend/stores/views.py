@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from stores.models import *
-from stores.serializers import *
+from .models import *
+from .serializers import *
 
 # Create your views here.
 
