@@ -59,6 +59,18 @@
       |                기준일시                 |    STD_DAY     |    30    |          |  2020년 3월 13일 00시   |                기준일시                 |
       |              수정일시분초               |   UPDATE_DT    |    30    |          |          null           |              수정일시분초               |
 
+      > defCnt = 확진자
+      >
+      > incDec = 추가 확진자
+      >
+      > isolClearCnt = 퇴원
+      >
+      > isolIngCnt = 치료중
+      >
+      > localOccCnt = Domestic Origin (국내 기원)
+      >
+      > overFlowCnt = Overseas Origin (국제 기원)
+
   - ## 보건복지부 코로나19 감염 현황
 
     - http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=(YOUR_API_KEY)&pageNo=1&numOfRows=10&startCreateDt=20200923&endCreateDt=20200923&
