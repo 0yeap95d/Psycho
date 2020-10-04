@@ -20,16 +20,15 @@
         <!-- 뉴스 카드 -->
         <news-area />
       </v-flex>
-        
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import Carousels from '../components/Main/Carousels'
-import MainState from '../components/Main/MainState'
-import Introduce from '../components/Main/Introduce'
-import NewsArea from '../components/Main/NewsArea'
+import Carousels from "../components/Main/Carousels";
+import MainState from "../components/Main/MainState";
+import Introduce from "../components/Main/Introduce";
+import NewsArea from "../components/Main/NewsArea";
 
 export default {
   components: {
@@ -37,6 +36,6 @@ export default {
     MainState,
     Introduce,
     NewsArea,
-  }
+  },
 };
 </script>
