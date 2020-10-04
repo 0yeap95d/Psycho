@@ -1,7 +1,9 @@
 <template>
     <v-container>
         <v-layout column>
-            <span style="font-size:20pt;">instagram 인기 키워드</span>
+            <span style="font-size:20pt;">
+                <img src="../assets/insta.png" height="60px" width="60px">
+                instagram 인기 키워드</span>
             <v-divider class="mb-5" ></v-divider>
             <v-flex class="white">
                 <word-cloud></word-cloud>
