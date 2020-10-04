@@ -19,12 +19,8 @@ from django.urls import path, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from django.contrib import admin
-from stores import views
+from . import views
 
 urlpatterns = [
-    path('stores/restaurants', views.store_list),
-    path('stores/reviews', views.review_list),
-    path('stores/hotels', views.hotel_list),
-    path('sns/make', views.sns_make),
-    path("admin/", admin.site.urls),
+    path('make', views.sns_make)
 ]

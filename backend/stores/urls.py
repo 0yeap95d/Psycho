@@ -22,5 +22,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('make', views.sns_make)
+    path('restaurants', views.store_list),
+    path('reviews', views.review_list),
+    path('hotels', views.hotel_list)
 ]

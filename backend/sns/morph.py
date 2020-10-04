@@ -14,6 +14,7 @@ import warnings
 
 from collections import Counter
 import re
+import shutil
 
 warnings.filterwarnings('ignore')
 okt = Okt()
@@ -187,18 +188,21 @@ driver = webdriver.Chrome(path, chrome_options=options)
 
 instagram_login(" ", " ")
 scroll_page()
-date_based_crawling("2020.08.25")
+date_based_crawling("2020.09.20")
 num_of_post = len(post_link)
 
 print('총 {0}개의 게시글을 수집합니다.'.format(num_of_post))
 
 text = ""
-for i in range(1, len(content_list)):
-        text += content_list[i][0]
+for i in range(0, len(content_list)):
+    text += content_list[i][0].replace('그램', '').replace('스타', '')
 
 df = pd.DataFrame(get_tags(text))
-content_list[0][1] = "content"
+print(df)
 dd = pd.DataFrame(content_list)
-df.to_csv('insta_keyword.csv', mode='w', encoding='utf-8', header=None)
-dd.to_csv('insta_content.csv', mode='w', encoding='utf-8', header=None)
+print(dd)
+df.to_csv("keyword.csv", mode='w', encoding='utf-8', index=False)
+dd.to_csv("content.csv", mode='w', encoding='utf-8', index=False)
+shutil.copy2("./keyword.csv", "../frontend/public/keyword.csv")
+shutil.copy2("./content.csv", "../frontend/public/content.csv")
 driver.quit()

@@ -1,7 +1,7 @@
 <template>
   <div class="small">
     <!-- <line-chart :chart-data="datacollection"></line-chart> -->
-    <!-- <doughnut-chart :chart-data="datacollection"></doughnut-chart> -->
+    <!-- <doughnut-chart></doughnut-chart> -->
     <bar-chart></bar-chart>
     <button @click="fillData()">Randomize</button>
   </div>
@@ -29,16 +29,16 @@
     methods: {
       fillData () {
         this.datacollection = {
-          labels: [this.getRandomInt(), this.getRandomInt()],
+          labels: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
           datasets: [
             {
               label: 'Data One',
               backgroundColor: '#A5D6A7',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
             }, {
-              label: 'Data One',
+              label: 'Data Two',
               backgroundColor: '#E6EE9C',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
             }
           ]
         }

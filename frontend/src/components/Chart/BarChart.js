@@ -8,8 +8,8 @@ export default {
       datasets: [
         {
           label: 'Data One',
-          backgroundColor: '#f87979',
-          data: [40, 20, 30, 25, 55]
+          backgroundColor: ['#f87979','#f87900','#d10101','#f80101','#f82222'],
+          data: [40, 35, 30, 20, 55]
         }
       ]
     },

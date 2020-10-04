@@ -40,6 +40,7 @@
 <script>
 import WordCloud from "../components/WordCloud"
 import RandomChart from "../components/Chart/RandomChart"
+
 export default {
     data() {
         return {
@@ -52,11 +53,10 @@ export default {
     methods: {
         getContents() {
             let contentList = new Array;
-            d3.csv("insta_content.csv", function(error, data) {
+            d3.csv("content.csv", function(error, data) {
                 if(error) throw error;
-                console.log(data)
-                for(var i = 0; i < data.length; i++){
-                    contentList.push({text: data[i][0], value: data[i].내용})
+                for(var i = 1; i < data.length; i++){
+                    contentList.push({value: data[i][0]})
                 }
             });
             this.items = contentList;
