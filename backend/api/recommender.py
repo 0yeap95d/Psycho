@@ -1,14 +1,16 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from backend import settings
 import numpy as np
 from django.apps import AppConfig
 import pickle
+from pathlib import Path
 
 
-PKL_FILE = "C:\\gitRepo\\ssafy_project\\data\\2019-full_refactored.pkl"
-MODEL_FILE = "C:\\gitRepo\\ssafy_project\\data\\rf_trained_model.pkl"
+DATA_DIR = Path(settings.BASE_DIR).parent.parent / "data"
+PKL_FILE = str(DATA_DIR / "2019-full_refactored.pkl")
+MODEL_FILE = str(DATA_DIR / "rf_trained_model.pkl")
 
 sido_encoder = LabelEncoder()
 gugun_encoder = LabelEncoder()
