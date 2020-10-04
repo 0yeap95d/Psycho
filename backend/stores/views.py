@@ -16,12 +16,14 @@ CATEGORY_DICT = {
     2112: ['감성주점', '단란주점', '정종/대포집/소주방', '통닭(치킨)', '호프/통닭', '기타']
 }
 
+
 @csrf_exempt
 def store_list(request):
     if request.method == 'GET':
         data = Store.objects.all()
         serializer = StoreSerializer(data, many=True)
         return JsonResponse(serializer.data, safe=False)
+
 
 @csrf_exempt
 def hotel_list(request):
@@ -35,7 +37,8 @@ def hotel_list(request):
 def recommend_store(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        recommender.encode_features(data['age'], data['gender'], data['sido'], data['gugun'], data['dong'])
+        recommender.encode_features(
+            data['age'], data['gender'], data['sido'], data['gugun'], data['dong'])
         prediction = recommender.make_prediction()
         category_list = list()
         for category in prediction:
@@ -45,11 +48,13 @@ def recommend_store(request):
         x_end = float(data['pos_x']) + 0.015
         y_start = float(data['pos_y']) - 0.015
         y_end = float(data['pos_y']) + 0.015
-        stores = Store.objects.filter(category__in=category_list, pos_x__range=(x_start, x_end), pos_y__range=(y_start, y_end))[:100]
+        stores = Store.objects.filter(category__in=category_list, pos_x__range=(
+            x_start, x_end), pos_y__range=(y_start, y_end))[:100]
         serializer = StoreSerializer(stores, many=True)
         return JsonResponse(serializer.data, safe=False)
 
 
+@csrf_exempt
 def recommend_hotel(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -62,6 +67,7 @@ def recommend_hotel(request):
         return JsonResponse(serializer.data, safe=False)
 
 
+@csrf_exempt
 def get_sido(request):
     if request.method == 'GET':
         sidos = District.objects.values_list('sido', flat=True).distinct()
@@ -73,6 +79,7 @@ def get_sido(request):
         return JsonResponse(json_data, safe=False)
 
 
+@csrf_exempt
 def get_gugun(request):
     if request.method == 'GET':
         sido = request.GET['sido']
@@ -84,6 +91,7 @@ def get_gugun(request):
         return JsonResponse(json_data, safe=False)
 
 
+@csrf_exempt
 def get_dong(request):
     if request.method == 'GET':
         sido = request.GET['sido']

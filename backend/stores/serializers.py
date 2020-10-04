@@ -14,7 +14,7 @@ class StoreSerializer(serializers.ModelSerializer):
             "category",
             "pos_x",
             "pos_y",
-            ]
+        ]
 
 
 class HotelSerializer(serializers.ModelSerializer):
