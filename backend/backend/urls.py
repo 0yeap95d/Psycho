@@ -22,7 +22,6 @@ from django.contrib import admin
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("sns/", include('sns.urls')),
-    path("stores/", include('stores.urls'))
-
+    path('covid19data/', include("covid19data.urls")),
+    path('stores/', include("stores.urls")),
 ]
