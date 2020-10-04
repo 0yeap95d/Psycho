@@ -50,3 +50,47 @@ def recommend_store(request):
         return JsonResponse(serializer.data, safe=False)
 
 
+def recommend_hotel(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        x_start = float(data['pos_x']) - 0.015
+        x_end = float(data['pos_x']) + 0.015
+        y_start = float(data['pos_y']) - 0.015
+        y_end = float(data['pos_y']) + 0.015
+        hotels = Hotel.objects.filter(pos_x__range=(x_start, x_end), pos_y__range=(y_start, y_end))[:100]
+        serializer = HotelSerializer(hotels, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+
+def get_sido(request):
+    if request.method == 'GET':
+        sidos = District.objects.values_list('sido', flat=True).distinct()
+        list = []
+        for sido in sidos:
+            list.append(sido)
+        json_data = json.dumps(list, ensure_ascii=False)
+        # serializer = DistrictSerializer(sido_dict)
+        return JsonResponse(json_data, safe=False)
+
+
+def get_gugun(request):
+    if request.method == 'GET':
+        sido = request.GET['sido']
+        guguns = District.objects.filter(sido__exact=sido).values_list('gugun', flat=True).distinct()
+        list = []
+        for gugun in guguns:
+            list.append(gugun)
+        json_data = json.dumps(list, ensure_ascii=False)
+        return JsonResponse(json_data, safe=False)
+
+
+def get_dong(request):
+    if request.method == 'GET':
+        sido = request.GET['sido']
+        gugun = request.GET['gugun']
+        dongs = District.objects.filter(sido__exact=sido, gugun__exact=gugun).values_list('dong', flat=True)
+        list = []
+        for dong in dongs:
+            list.append(dong)
+        json_data = json.dumps(list, ensure_ascii=False)
+        return JsonResponse(json_data, safe=False)

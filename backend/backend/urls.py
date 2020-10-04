@@ -23,8 +23,6 @@ from stores import views
 
 
 urlpatterns = [
-    path('stores/restaurants', views.store_list),
-    path('stores/hotels', views.hotel_list),
-    path('stores/recommend', views.recommend_store),
     path("admin/", admin.site.urls),
+    path('stores/', include("stores.urls")),
 ]
