@@ -23,6 +23,6 @@ from .views import *
 
 urlpatterns = [
     path('restaurants', store_list),
-    path('reviews', review_list),
     path('hotels', hotel_list),
+    path('recommend', recommend_store),
 ]
