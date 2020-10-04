@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Covid19Info(models.Model):  # 코로나 일반 현황
-    seq = models.CharField(max_length=200, null=True)  # ID
+    seq = models.IntegerField(primary_key=True)  # ID
     stateDt = models.CharField(max_length=200, null=True)  # 기준 일
     stateTime = models.CharField(max_length=200, null=True)  # 기준 시간
-    createDt = models.CharField(max_length=200, null=True)  # 등록일시분초
+    createDt = models.DateTimeField(null=True)  # 등록일시분초
     accExamCnt = models.CharField(max_length=200, null=True)  # 누적 검사 수
     examCnt = models.CharField(max_length=200, null=True)  # 검사 진행 수
     accExamCompCnt = models.CharField(max_length=200, null=True)  # 누적 검사 완료 수
@@ -19,8 +19,8 @@ class Covid19Info(models.Model):  # 코로나 일반 현황
 
 
 class Covid19GenAgeInfo(models.Model):  # 코로나 성별, 연령별 현황
-    seq = models.CharField(max_length=200, null=True)  # ID
-    createDt = models.CharField(max_length=200, null=True)  # 등록일시분초
+    seq = models.IntegerField(primary_key=True)  # ID
+    createDt = models.DateTimeField(null=True)  # 등록일시분초
     gubun = models.CharField(max_length=200, null=True)  # 구분(성별,연령)
     confCase = models.CharField(max_length=200, null=True)  # 확진자
     confCaseRate = models.CharField(max_length=200, null=True)  # 확진률
@@ -31,9 +31,9 @@ class Covid19GenAgeInfo(models.Model):  # 코로나 성별, 연령별 현황
 
 
 class Covid19SidoInfo(models.Model):  # 코로나 지역별 현황
-    seq = models.CharField(max_length=200, null=True)  # ID
+    seq = models.IntegerField(primary_key=True)  # ID
     stdDay = models.CharField(max_length=200, null=True)  # 기준일시
-    createDt = models.CharField(max_length=200, null=True)  # 등록일시분초
+    createDt = models.DateTimeField(null=True)  # 등록일시분초
     gubun = models.CharField(max_length=200, null=True)  # 구분(지역별)
     gubunCn = models.CharField(max_length=200, null=True)  # 구분 한자
     gubunEn = models.CharField(max_length=200, null=True)  # 구분 영어

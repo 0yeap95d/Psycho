@@ -22,7 +22,7 @@ from django.contrib import admin
 from .views import *
 
 urlpatterns = [
-    path('/Covid19Info', getCovid19Info),
-    path('/Covid19GenAgeInfo', getCovid19GenAgeInfo),
-    path('/Covid19SidoInfo', getCovid19SidoInfo),
+    path('Covid19Info', getCovid19Info),
+    path('Covid19GenAgeInfo', getCovid19GenAgeInfo),
+    path('Covid19SidoInfo', getCovid19SidoInfo),
 ]

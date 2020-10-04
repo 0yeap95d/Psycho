@@ -15,7 +15,7 @@ class StoreSerializer(serializers.ModelSerializer):
             "latitude",
             "longitude",
             "category_list"
-            ]
+        ]
 
 
 class ReviewSerializer(serializers.ModelSerializer):
