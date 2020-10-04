@@ -13,5 +13,10 @@ export default [
     path: "/search",
     view: "Search",
     name: "search"
+  },
+  {
+    path: "/statistic",
+    view: "Statistic",
+    name: "statistic"
   }
 ];
