@@ -1,9 +1,9 @@
 <template>
   <div class="small">
-    <!-- <line-chart :chart-data="datacollection"></line-chart> -->
-    <!-- <doughnut-chart></doughnut-chart> -->
+    <line-chart :chart-data="datacollection"></line-chart>
+    <doughnut-chart></doughnut-chart>
     <bar-chart></bar-chart>
-    <button @click="fillData()">Randomize</button>
+    <button @click="fillData()">코로나현황</button>
   </div>
 </template>
 
