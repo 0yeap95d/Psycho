@@ -38,4 +38,5 @@ class DistrictSerializer(serializers.ModelSerializer):
             "sido",
             "gugun",
             "dong",
+            "payment_count",
         ]
