@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0" fill-height>
+  <v-container fluid class="pa-0 search-container" fill-height>
     <v-layout column>
       <v-flex>
         <navbar></navbar>
@@ -126,7 +126,7 @@ export default {
 </script>
 
 <style>
-.container {
+.search-container {
   width: 100%;
   margin: 0;
   padding: 0;

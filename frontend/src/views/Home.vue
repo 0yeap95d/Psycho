@@ -26,7 +26,8 @@
 
 <script>
 import Carousels from "../components/Main/Carousels";
-import MainState from "../components/Main/MainState";
+// import MainState from "../components/Main/MainState";
+import MainState from "../components/Main/MainStateTest";
 import Introduce from "../components/Main/Introduce";
 import NewsArea from "../components/Main/NewsArea";
 

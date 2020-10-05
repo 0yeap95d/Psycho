@@ -26,3 +26,13 @@ class Hotel(models.Model):
 
     def __str__(self):
         return [self.id, self.tel, self.address1, self.name, self.pos_x, self.pos_y]
+
+
+class District(models.Model):
+    sido = models.CharField(max_length=20, default=False)
+    gugun = models.CharField(max_length=20, default=False)
+    dong = models.CharField(max_length=20, default=False)
+    payment_count = models.BigIntegerField(max_length=20, default=False)
+
+    def __str__(self):
+        return [self.sido, self.gugun, self.dong]

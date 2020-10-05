@@ -3,13 +3,17 @@
     <v-spacer v-if="!responsive" />
 
     <v-toolbar-title @click="goSearchPage('home')">싸이코</v-toolbar-title>
-    <div v-if="!responsive" class="ml-5 mt-1">싸우자 이기자 코로나</div>
-
+    <div v-if="!responsive" class="ml-5 mt-1 subtitle">
+      <span style="color: #f08c8c; font-size: 15pt;">싸</span>우자 
+      <span style="color: #f08c8c; font-size: 15pt;">이</span>기자 
+      <span style="color: #f08c8c; font-size: 15pt;">코</span>로나
+    </div>
     <v-spacer />
 
     <v-app-bar-nav-icon
       v-if="responsive"
       @click.stop="onClickDrawer"
+      style="-webkit-filter: drop-shadow(0 0 0 green);filter: drop-shadow(0 0 0 black);"
     ></v-app-bar-nav-icon>
 
     <v-layout v-if="!responsive" justify-end>
@@ -27,18 +31,23 @@
           </v-btn>
         </template>
 
-        <v-list>
-          <v-list-item v-for="(item, i) in items" :key="i">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+        <v-list style="text-align: center;
+            margin: 0; padding: 0;
+            background-image: linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%);
+            background-repeat: no-repeat;  
+            background-size: 100% 100%;
+            border-radius: 20px;">
+          <v-list-item v-for="(item, i) in items.slice(0,10)" :key="i">
+            <v-list-item-title>{{i + 1}}위 {{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
 
-      <v-btn text color="gray" @click="goSearchPage('search')">
+      <v-btn text color="#f08c8c" @click="goSearchPage('search')">
         <span>지도 검색</span>
       </v-btn>
 
-      <v-btn text color="gray" @click="goSearchPage('statistic')">
+      <v-btn text color="#f08c8c" @click="goSearchPage('statistic')">
         <span>해시태그</span>
       </v-btn>
     </v-layout>
@@ -55,20 +64,7 @@ export default {
     responsive: false,
     searchItem: "",
     interval: {},
-    items: [
-      { title: "COVID-19" },
-      { title: "무섭다" },
-      { title: "언제끝나" },
-      { title: "Amazing 2020" },
-      { title: "COVID-19" },
-      { title: "무섭다 무섭다 무섭다 무섭다" },
-      { title: "언제끝나" },
-      { title: "Amazing 2020" },
-      { title: "COVID-19" },
-      { title: "무섭다" },
-      { title: "언제끝나" },
-      { title: "Amazing 2020" },
-    ],
+    items: [],
   }),
   computed: {
     ...mapState("app", ["drawer"]),
@@ -77,6 +73,7 @@ export default {
     this.onResponsiveInverted();
     this.changeSearchItem();
     window.addEventListener("resize", this.onResponsiveInverted);
+    this.getRank()
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResponsiveInverted);
@@ -112,6 +109,17 @@ export default {
     goSearchPage(page) {
       this.$router.push(page);
     },
+    getRank() {
+            let wordList = new Array;
+            d3.csv("keyword.csv", function(error, data) {
+                if(error) throw error;
+                for(var i = 0; i < data.length; i++){
+                    wordList.push({title: data[i].tag})
+                }
+            });
+            this.items = wordList;
+        }
   },
 };
 </script>
+
