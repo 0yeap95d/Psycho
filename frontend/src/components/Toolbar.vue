@@ -13,6 +13,7 @@
     <v-app-bar-nav-icon
       v-if="responsive"
       @click.stop="onClickDrawer"
+      style="-webkit-filter: drop-shadow(0 0 0 green);filter: drop-shadow(0 0 0 black);"
     ></v-app-bar-nav-icon>
 
     <v-layout v-if="!responsive" justify-end>
@@ -30,9 +31,14 @@
           </v-btn>
         </template>
 
-        <v-list>
-          <v-list-item v-for="(item, i) in items" :key="i">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+        <v-list style="text-align: center;
+            margin: 0; padding: 0;
+            background-image: linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%);
+            background-repeat: no-repeat;  
+            background-size: 100% 100%;
+            border-radius: 20px;">
+          <v-list-item v-for="(item, i) in items.slice(0,10)" :key="i">
+            <v-list-item-title>{{i + 1}}위 {{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -58,20 +64,7 @@ export default {
     responsive: false,
     searchItem: "",
     interval: {},
-    items: [
-      { title: "COVID-19" },
-      { title: "무섭다" },
-      { title: "언제끝나" },
-      { title: "Amazing 2020" },
-      { title: "COVID-19" },
-      { title: "무섭다 무섭다 무섭다 무섭다" },
-      { title: "언제끝나" },
-      { title: "Amazing 2020" },
-      { title: "COVID-19" },
-      { title: "무섭다" },
-      { title: "언제끝나" },
-      { title: "Amazing 2020" },
-    ],
+    items: [],
   }),
   computed: {
     ...mapState("app", ["drawer"]),
@@ -80,6 +73,7 @@ export default {
     this.onResponsiveInverted();
     this.changeSearchItem();
     window.addEventListener("resize", this.onResponsiveInverted);
+    this.getRank()
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResponsiveInverted);
@@ -115,6 +109,17 @@ export default {
     goSearchPage(page) {
       this.$router.push(page);
     },
+    getRank() {
+            let wordList = new Array;
+            d3.csv("keyword.csv", function(error, data) {
+                if(error) throw error;
+                for(var i = 0; i < data.length; i++){
+                    wordList.push({title: data[i].tag})
+                }
+            });
+            this.items = wordList;
+        }
   },
 };
 </script>
+
