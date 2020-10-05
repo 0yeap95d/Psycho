@@ -82,7 +82,8 @@ class Command(BaseCommand):
             models.District(
                 sido=district.sido,
                 gugun=district.gugun,
-                dong=district.dong
+                dong=district.dong,
+                payment_count=district.payment_count,
             )
             for district in districts.itertuples()
         ]
