@@ -1,7 +1,7 @@
 <template>
   <v-carousel cycle :height="windowHeight" hide-delimiters>
     <v-carousel-item>
-      <v-img src="../../assets/hero02.png">
+      <v-img src="../../assets/hero02.png" class="carousel-img">
         <div class="display-3">{{ slide }} Slide???</div>
       </v-img>
     </v-carousel-item>
@@ -38,7 +38,8 @@ export default {
 </script>
 
 <style>
-.v-image__image {
+.carousel-img {
+  background-color: white;
   opacity: 0.6;
 }
 </style>

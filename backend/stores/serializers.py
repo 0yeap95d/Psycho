@@ -26,6 +26,6 @@ class HotelSerializer(serializers.ModelSerializer):
             "address1",
             "address2",
             "name",
-            "latitude",
-            "longitude",
+            "pos_x",
+            "pos_y",
         ]

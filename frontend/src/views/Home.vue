@@ -1,22 +1,22 @@
 <template>
   <v-container fluid class="pa-0" fill-height>
     <v-layout column>
-      <v-flex>
+      <v-flex v-scroll-reveal.reset="{ delay: 300 }">
         <!-- 캐러셀 -->
         <carousels />
       </v-flex>
 
-      <v-flex>
+      <v-flex v-scroll-reveal.reset="{ delay: 300 }">
         <!-- 코로나 현재 상태 -->
         <main-state />
       </v-flex>
 
-      <v-flex>
+      <v-flex v-scroll-reveal.reset="{ delay: 300 }">
         <!-- 페이지 소개 -->
         <introduce />
       </v-flex>
 
-      <v-flex>
+      <v-flex v-scroll-reveal.reset="{ delay: 300 }">
         <!-- 뉴스 카드 -->
         <news-area />
       </v-flex>

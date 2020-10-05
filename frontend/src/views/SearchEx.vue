@@ -3,6 +3,8 @@
     v-infinite-scroll="loadMore"
     infinite-scroll-disabled="loading"
     infinite-scroll-distance="10"
+    style="max-height: 1000px"
+    class="overflow-y-auto"
   >
     <v-container fill-height fluid grid-list-xl>
       <v-layout justify-center wrap mt-5>
@@ -50,14 +52,18 @@
 import Card from "@/components/Card";
 import StoreListCard from "@/components/StoreListCard";
 import { mapState, mapActions } from "vuex";
+// import RequestApi from "../api/api"
+
 export default {
   components: {
     Card,
-    StoreListCard
+    StoreListCard,
+    // RequestApi,
   },
   data: () => ({
     storeName: "",
-    loading: true
+    loading: true,
+    windowHeight: window.innerHeight,
   }),
   computed: {
     ...mapState({
@@ -68,15 +74,25 @@ export default {
   methods: {
     ...mapActions("data", ["getStores"]),
     onSubmit: async function() {
-      const params = {
-        name: this.storeName,
-        page: 1,
-        append: false
-      };
-      await this.getStores(params);
-      this.loading = false;
+      console.log("onSubmit");
+      // const params = {
+      //   name: this.storeName,
+      //   page: 1,
+      //   append: false
+      // };
+      // await this.getStores(params);
+      // this.loading = false;
+      // await RequestApi.requestStore(
+      //   (res) => {
+      //     console.log(res);
+      //   },
+      //   (error) => {
+      //     console.log(error);
+      //   }
+      // )
     },
     loadMore: async function() {
+      console.log("loadMore");
       this.loading = true;
       const params = {
         name: this.storeName,

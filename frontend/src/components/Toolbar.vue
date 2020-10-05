@@ -1,11 +1,9 @@
 <template>
-  <v-app-bar id="app-toolbar" elevation="0">
+  <v-app-bar color="white" id="app-toolbar" elevation="0">
     <v-spacer v-if="!responsive" />
 
     <v-toolbar-title @click="goSearchPage('home')">싸이코</v-toolbar-title>
-    <v-toolbar-sub-title v-if="!responsive" class="ml-5 mt-1"
-      >싸우자 이기자 코로나</v-toolbar-sub-title
-    >
+    <div v-if="!responsive" class="ml-5 mt-1">싸우자 이기자 코로나</div>
 
     <v-spacer />
 
@@ -40,7 +38,7 @@
         <span>지도 검색</span>
       </v-btn>
 
-      <v-btn text color="gray" @click="goSearchPage('hashtag')">
+      <v-btn text color="gray" @click="goSearchPage('statistic')">
         <span>해시태그</span>
       </v-btn>
     </v-layout>

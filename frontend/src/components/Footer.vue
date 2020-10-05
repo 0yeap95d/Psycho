@@ -6,17 +6,17 @@
     <v-card
       flat
       tile
-      color="#F44336"
-      class="white--text text-center"
+      color="white"
+      class="black--text text-center"
       width="100%"
     >
-      <v-card-text width class="white--text pt-10">
+      <v-card-text width class="black--text pt-10">
         여기는 Footer 입니다 
       </v-card-text>
 
-      <v-divider></v-divider>
+      <v-divider light></v-divider>
 
-      <v-card-text class="white--text">
+      <v-card-text class="black--text">
         {{ new Date().getFullYear() }} — <strong>COSAT</strong>
       </v-card-text>
     </v-card>
