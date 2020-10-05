@@ -12,7 +12,9 @@
             <div @click="onCovidClick"> </div>
             <div @click="onCovidClick"> </div>
         </div>
-        <h2>Animated Background</h2>
+        <h2><span style="font-size:70pt;">싸</span>우자<br>
+        <span style="font-size:70pt;">&emsp;&emsp;이</span>기자<br>
+        <span style="font-size:70pt;">&emsp;&emsp;&emsp;&emsp;코</span>로나</h2>
     </div>
 </template>
 
@@ -28,6 +30,11 @@ export default {
 </script>
 
 <style scoped>
+@font-face { 
+    font-family: 'Maple'; 
+    src: url(../assets/font/Maplestory_Bold.ttf) format('truetype'); 
+}
+
 * {
 margin: 0;
 padding: 0;
@@ -35,21 +42,25 @@ padding: 0;
 .box {
 width: 100%;
 height: 100vh;
-background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-background-image: url("../assets/untitled.jpg");
+background-image: linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%)
+                    ,url("../assets/untitled.jpg");
+background-repeat: no-repeat, no-repeat;  
 background-size: 100% 100%;
 }
+
 h2 {
 position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
 color: #000000;
-font-family: lato;
+font-family: Maple;
 font-weight: 900;
+color: #350303;
 text-transform: uppercase;
 font-size: 60px;
 }
+
 .box div {
 height: 60px;
 width: 60px;
