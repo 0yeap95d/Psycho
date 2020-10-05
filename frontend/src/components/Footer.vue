@@ -6,12 +6,14 @@
     <v-card
       flat
       tile
-      color="#F44336"
+      color="#f08c8c"
       class="white--text text-center"
       width="100%"
     >
-      <v-card-text width class="white--text pt-10">
-        여기는 Footer 입니다 
+      <v-card-text width class="black--text pt-10">
+         이용약관 | 개인정보없음<br>
+         <span style="font-size:10pt; color:#303030;">본 사이트의 콘텐츠를 무단 전재, 복사, 배포 등을 금합니다.</span><br>
+         Copyright© COSAT TEAM All Rights Reserved.
       </v-card-text>
 
       <v-divider></v-divider>

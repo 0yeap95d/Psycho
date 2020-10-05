@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="580c9f46-162f-41bd-b05b-50c6fb6475f6" name="Default Changelist" comment="">
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -17,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/../frontend/src/views/Statistic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/views/Statistic.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/recommender.py" afterDir="false" />
-=======
       <change afterPath="$PROJECT_DIR$/covid19data/README_app_covid19data.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/covid19data/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/covid19data/admin.py" afterDir="false" />
@@ -36,7 +34,6 @@
       <change beforePath="$PROJECT_DIR$/stores/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/stores/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stores/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/stores/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stores/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/stores/views.py" afterDir="false" />
->>>>>>> 8e26e6ff0cb22403cd1f290b4bd5141872fade71
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

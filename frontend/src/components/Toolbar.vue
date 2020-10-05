@@ -3,10 +3,11 @@
     <v-spacer v-if="!responsive" />
 
     <v-toolbar-title @click="goSearchPage('home')">싸이코</v-toolbar-title>
-    <v-toolbar-sub-title v-if="!responsive" class="ml-5 mt-1"
-      >싸우자 이기자 코로나</v-toolbar-sub-title
-    >
-
+    <div v-if="!responsive" class="ml-5 mt-1 subtitle">
+      <span style="color: #f08c8c; font-size: 15pt;">싸</span>우자 
+      <span style="color: #f08c8c; font-size: 15pt;">이</span>기자 
+      <span style="color: #f08c8c; font-size: 15pt;">코</span>로나
+    </div>
     <v-spacer />
 
     <v-app-bar-nav-icon
@@ -36,11 +37,11 @@
         </v-list>
       </v-menu>
 
-      <v-btn text color="gray" @click="goSearchPage('search')">
+      <v-btn text color="#f08c8c" @click="goSearchPage('search')">
         <span>지도 검색</span>
       </v-btn>
 
-      <v-btn text color="gray" @click="goSearchPage('hashtag')">
+      <v-btn text color="#f08c8c" @click="goSearchPage('statistic')">
         <span>해시태그</span>
       </v-btn>
     </v-layout>

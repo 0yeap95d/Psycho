@@ -1,18 +1,15 @@
 <template>
-  <div id="app">
+  <div id="App">
     <cloud 
-        nameKey="text"
-        valueKey="value"
-        :data="words" 
-        :fontSizeMapper="fontSizeMapper"
-        :width="width"
-        :height="height"
-        :font="fontType"
-        :colors="myColors"
-        :animation-duration=3
-        :animation-overlap=0.5
-    >
-    </cloud>
+    nameKey="text"
+    valueKey="value"
+    :data="words" 
+    :fontSizeMapper="fontSizeMapper"
+    :width="width"
+    :height="height"
+    :font="fontType"
+    :colors="myColors"   
+    ></cloud>
   </div>
 </template>
  
@@ -20,11 +17,14 @@
 import Cloud from 'vue-d3-cloud'
  
 export default {
-    name: 'app',
+    name: 'App',
+    components: {
+        Cloud,
+    },
     data() {
         return {
             myColors: ['#ff0000', '#000000', '#f5b4b6', '#6c6c6c'],
-            width: window.innerWidth,
+            width: window.innerWidth * 0.8,
             height: 600,
             fontType: "Roboto",
             words:[],
@@ -44,10 +44,7 @@ export default {
                 }
             });
             this.words = wordList;
-        },
-    },
-    components: {
-        Cloud,
-    },
+        }
+    }
 }
 </script>

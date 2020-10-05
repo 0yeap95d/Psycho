@@ -6,25 +6,25 @@ export default {
     chartData: {
     datasets: [
       {
-        label: 'red1',
-        backgroundColor: '#ff0000',
+        label: 'r1',
+        backgroundColor: ['#ff0000','#773333','#aa9999'],
         data: [40, 20, 30]
       },
       {
-        label: 'red2',
-        backgroundColor: '#000000',
+        label: 'r2',
+        backgroundColor: ['#f08c8c','#ff0000','#773333'],
         data: [40, 15, 30]
       },
       {
-        label: 'red3',
-        backgroundColor: '#ff00dd',
+        label: 'r3',
+        backgroundColor: ['#ff0000','#f08c8c','#aa9999'],
         data: [40, 5, 5]
       }
     ],
     labels: [
-        'Red',
-        'Yellow',
-        'Blue'
+        '확진자',
+        '치료중',
+        '완치자'
     ]
   }
 }),
