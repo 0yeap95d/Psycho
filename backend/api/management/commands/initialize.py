@@ -11,6 +11,7 @@ class Command(BaseCommand):
     DATA_DIR = Path(settings.BASE_DIR).parent.parent / "data"
     STORE_DATA = str(DATA_DIR / "stores.pkl")
     HOTEL_DATA = str(DATA_DIR / "hotels.pkl")
+    DISTRICT_DATA = str(DATA_DIR / "district.csv")
 
     def _load_stores(self):
         try:
@@ -21,13 +22,16 @@ class Command(BaseCommand):
             exit(1)
         return data
 
-
     def _load_hotels(self):
         try:
             data = pd.read_pickle(Command.HOTEL_DATA)
         except:
             print(f"[-] Reading {Command.HOTEL_DATA} failed")
             exit(1)
+        return data
+
+    def _load_district(self):
+        data = pd.read_csv(Command.DISTRICT_DATA, encoding='cp949')
         return data
 
     def _initialize(self):
@@ -37,6 +41,7 @@ class Command(BaseCommand):
         print("[*] Loading data...")
         stores = self._load_stores()
         hotels = self._load_hotels()
+        districts = self._load_district()
 
         print("[*] Initializing stores...")
         models.Store.objects.all().delete()
@@ -71,6 +76,19 @@ class Command(BaseCommand):
             for hotel in hotels.itertuples()
         ]
         models.Hotel.objects.bulk_create(hotels_bulk)
+
+        print("[*] Initializing district...")
+        models.District.objects.all().delete()
+        districts_bulk = [
+            models.District(
+                sido=district.sido,
+                gugun=district.gugun,
+                dong=district.dong,
+                payment_count=district.payment_count,
+            )
+            for district in districts.itertuples()
+        ]
+        models.District.objects.bulk_create(districts_bulk)
 
         print("[+] Done")
 
