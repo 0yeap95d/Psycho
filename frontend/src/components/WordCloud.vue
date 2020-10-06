@@ -25,7 +25,7 @@ export default {
         return {
             myColors: ['#ff0000', '#000000', '#f5b4b6', '#6c6c6c'],
             width: window.innerWidth * 0.8,
-            height: 600,
+            height: 450,
             fontType: "Roboto",
             words:[],
             fontSizeMapper: word => Math.log2(word.value) * 5,
