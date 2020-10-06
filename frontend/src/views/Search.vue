@@ -176,8 +176,6 @@ export default {
     src: url(../assets/font/Maplestory_Bold.ttf) format('truetype')
 		,url(../assets/font/Maplestory_Light.ttf) format('truetype'); 
 }
-body{-ms-overflow-style:none; }
-body::-webkit-scrollbar { display:none; }
 select:focus {
   outline: none;
 	box-shadow: none;

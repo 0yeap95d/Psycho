@@ -1,10 +1,6 @@
 <template>
   <v-carousel cycle :height="windowHeight" hide-delimiters>
     <v-carousel-item>
-<<<<<<< HEAD
-      <v-img src="../../assets/hero02.png" class="carousel-img">
-        <div class="display-3">{{ slide }} Slide???</div>
-=======
       <v-img src="../../assets/hero01.png">
         <div class="display-33">우리는 늘 이겨냈고</div>
       </v-img>
@@ -25,12 +21,11 @@
     <v-carousel-item>
       <v-img src="../../assets/hero04.jpg">
         <div class="display-33">모든 분들을</div>
->>>>>>> 3d2f24aa408ce2d67d050d883f4e22f08401cc48
       </v-img>
     </v-carousel-item>
 
     <v-carousel-item>
-      <v-img src="../../assets/hero04.jpg">
+      <v-img src="../../assets/hero05.jpg">
         <div class="display-33">응원합니다!</div>
       </v-img>
     </v-carousel-item>
@@ -52,7 +47,7 @@
 export default {
   data() {
     return {
-      windowHeight: window.innerHeight,
+      windowHeight: window.innerHeight - 64,
       colors: [
         "indigo",
         "warning",
