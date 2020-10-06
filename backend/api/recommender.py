@@ -28,22 +28,22 @@ class AppConfigStartUp(AppConfig):
 
 def make_prediction():
     global df
-    df = df[(df["code"] > 2100)]
-    sido = sido_encoder.fit_transform(df['sido'])
-    gugun = gugun_encoder.fit_transform(df['gugun'])
-    dong = dong_encoder.fit_transform(df['dong'])
+    df1 = df[(df["code"] > 2100)]
+    sido = sido_encoder.fit_transform(df1['sido'])
+    gugun = gugun_encoder.fit_transform(df1['gugun'])
+    dong = dong_encoder.fit_transform(df1['dong'])
 
-    n = df.columns[2]
-    df.drop(n, axis=1)
-    df[n] = sido
-    n = df.columns[3]
-    df.drop(n, axis=1)
-    df[n] = gugun
-    n = df.columns[4]
-    df.drop(n, axis=1)
-    df[n] = dong
+    n = df1.columns[2]
+    df1.drop(n, axis=1)
+    df1[n] = sido
+    n = df1.columns[3]
+    df1.drop(n, axis=1)
+    df1[n] = gugun
+    n = df1.columns[4]
+    df1.drop(n, axis=1)
+    df1[n] = dong
 
-    features = pd.get_dummies(df, columns=['gender', 'age'])
+    features = pd.get_dummies(df1, columns=['gender', 'age'])
     labels = np.array(features['code'])
     features = features.drop('code', axis=1)
     train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size=0.1,
