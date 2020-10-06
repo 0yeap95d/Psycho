@@ -28,7 +28,8 @@ def store_list(request):
 @csrf_exempt
 def hotel_list(request):
     if request.method == 'GET':
-        data = Hotel.objects.all()
+        # data = Hotel.objects.all()
+        data = Hotel.objects.filter(name__istartswith=request.GET['name'])
         serializer = HotelSerializer(data, many=True)
         return JsonResponse(serializer.data, safe=False)
 

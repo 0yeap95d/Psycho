@@ -1,15 +1,4 @@
 import { Doughnut } from 'vue-chartjs'
-import API from '../../api/HotelApi'
-
-API.requestHotel(
-  (res) => {
-    console.log(res);
-  },
-  (error) => {
-    console.log(error);
-  }
-)
-
 
 export default {
   extends: Doughnut,

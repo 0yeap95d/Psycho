@@ -39,7 +39,8 @@ export default {
     },
 
     setMakers() {
-      console.log("setMakers"); 
+      console.log("setMakers");
+
       // 마커 클러스터러를 생성합니다
       var clusterer = new kakao.maps.MarkerClusterer({
         map: this.map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
@@ -93,10 +94,13 @@ export default {
       });
 
       var markers = this.storeList.map(function (store, i) {
+        console.log(store.pos_x + " " + store.pos_y);
         return new kakao.maps.Marker( {
-          position: new kakao.maps.LatLng(store.latitude, store.longitude),
+          position: new kakao.maps.LatLng(store.pos_y, store.pos_x),
         });
       });
+
+      console.log(markers[0].position);
 
       clusterer.addMarkers(markers);
     },

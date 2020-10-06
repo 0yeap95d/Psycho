@@ -80,6 +80,7 @@ import Navbar from "@/components/Search/Navbar";
 import Card from "@/components/Card";
 import StoreListCard from "@/components/StoreListCard";
 import HotelApi from "@/api/HotelApi";
+import StoreApi from "@/api/StoreApi";
 
 export default {
   components: {
@@ -97,15 +98,23 @@ export default {
   methods: {
     onSubmit: async function() {
       console.log("onSubmit");
-      await HotelApi.requestHotel(
+      await StoreApi.requestRecStore(
         (res) => {
-          this.hotels = res.data;
-          console.log(this.hotels);
+          console.log(res);
         },
         (error) => {
           console.log(error);
         }
       )
+      // await HotelApi.requestHotel(
+      //   (res) => {
+      //     this.hotels = res.data;
+      //     console.log(this.hotels);
+      //   },
+      //   (error) => {
+      //     console.log(error);
+      //   }
+      // )
     },
 
     loadMore: async function() {
