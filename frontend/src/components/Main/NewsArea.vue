@@ -93,4 +93,8 @@ export default {
   margin: 20px;
 }
 
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 3d2f24aa408ce2d67d050d883f4e22f08401cc48

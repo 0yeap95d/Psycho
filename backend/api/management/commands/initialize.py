@@ -15,6 +15,7 @@ class Command(BaseCommand):
 
     def _load_stores(self):
         try:
+            print(Command.STORE_DATA)
             data = pd.read_pickle(Command.STORE_DATA)
         except:
             print(f"[-] Reading {Command.STORE_DATA} failed")

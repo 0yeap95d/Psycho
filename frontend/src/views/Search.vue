@@ -130,7 +130,43 @@ export default {
     selectCity: ""
   }),
   computed: {},
-  methods: {},
+  methods: {
+    onSubmit: async function() {
+      console.log("onSubmit");
+      await StoreApi.requestRecStore(
+        (res) => {
+          this.hotels = res.data;
+          console.log(res.data.data)
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+      // await HotelApi.requestHotel(
+      //   (res) => {
+      //     this.hotels = res.data;
+      //     console.log(this.hotels);
+      //   },
+      //   (error) => {
+      //     console.log(error);
+      //   }
+      // )
+    },
+
+    loadMore: async function() {
+      console.log("loadMore");
+      // this.loading = true;
+      // const params = {
+      //   name: this.storeName,
+      //   page: this.page,
+      //   append: true
+      // };
+      // await this.getStores(params);
+      // setTimeout(() => {
+      //   this.loading = false;
+      // }, 1000);
+    }
+  },
 };
 </script>
 
@@ -161,7 +197,10 @@ select {
   margin: 0;
   padding: 0;
 }
-.Map {
-  width: 50%;
+.map {
+  width: 65%;
+}
+.search {
+  width: 35%;
 }
 </style>

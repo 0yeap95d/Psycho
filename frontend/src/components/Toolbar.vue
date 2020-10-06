@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar id="app-toolbar" elevation="0">
+  <v-app-bar color="white" id="app-toolbar" elevation="0">
     <v-spacer v-if="!responsive" />
 
     <v-toolbar-title @click="goSearchPage('home')">싸이코</v-toolbar-title>
