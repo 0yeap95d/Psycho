@@ -100,10 +100,11 @@ export default {
       console.log("onSubmit");
       await StoreApi.requestRecStore(
         (res) => {
-          console.log(res);
+          this.hotels = res.data;
+          console.log(res.data.data)
         },
         (error) => {
-          console.log(error);
+          console.log(error)
         }
       )
       // await HotelApi.requestHotel(
