@@ -38,8 +38,19 @@ def hotel_list(request):
 def recommend_store(request):
     if request.method == 'POST':
         data = json.loads(request.body)
+        address = data['address']
+        address_list = address.split(" ")
+        sido = address_list[0]
+        if address_list[2].endswith('시') or address_list[2].endswith('군') or address_list[2].endswith('구'):
+            print(address_list[2][-1])
+            gugun = address_list[1] + " " + address_list[2]
+            dong = address_list[3]
+        else:
+            gugun = address_list[1]
+            dong = address_list[2]
+
         recommender.encode_features(
-            data['age'], data['gender'], data['sido'], data['gugun'], data['dong'])
+            data['age'], data['gender'], sido, gugun, dong)
         prediction = recommender.make_prediction()
         category_list = list()
         for category in prediction:
@@ -49,8 +60,16 @@ def recommend_store(request):
         x_end = float(data['pos_x']) + 0.015
         y_start = float(data['pos_y']) - 0.015
         y_end = float(data['pos_y']) + 0.015
-        stores = Store.objects.filter(category__in=category_list, pos_x__range=(
-            x_start, x_end), pos_y__range=(y_start, y_end))[:100]
+
+        stores = Store.objects.raw('SELECT DISTINCT ss.id, ss.name, ss.tel, ss.address1, ss.pos_x, ss.pos_y, ss.address2, ss.category FROM stores_store ss, danger_level_table dlt WHERE instr(address1, "'
+                                   + sido + '") > 0 AND instr(address1, "'
+                                   + gugun + '") > 0 AND instr(address1, "'
+                                   + dong + '") > 0 AND dlt.danger_level < 20 AND pos_x BETWEEN '
+                                   + str(x_start) + ' AND ' + str(x_end) +' AND pos_y BETWEEN '
+                                   + str(y_start) + ' AND ' + str(y_end) + ';')[:100]
+
+        # stores = Store.objects.filter(category__in=category_list, pos_x__range=(
+        #     x_start, x_end), pos_y__range=(y_start, y_end))[:100]
         serializer = StoreSerializer(stores, many=True)
         return JsonResponse(serializer.data, safe=False)
 
