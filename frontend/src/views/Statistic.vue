@@ -1,5 +1,5 @@
 <template>
-    <v-container pa-0>
+    <v-container>
         <div id="tabs">
             <button v-for="(tab, index) in tabs" :key=index
             :class="{active: currentTab === index}"
@@ -112,6 +112,7 @@ export default {
 	}
     #TabContent {
         border: 1px solid gray;
+        background-color: white;
     }
 	span {
 		padding: 20px;
