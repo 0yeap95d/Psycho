@@ -1,7 +1,9 @@
 <template>
-  <v-container>
-    <div id="tabs">
-      <button v-for="(tab, index) in tabs" :key="index" :class="{ active: currentTab === index }" @click="currentTab = index">{{ tab }}</button>
+    <v-container>
+        <div id="tabs">
+            <button v-for="(tab, index) in tabs" :key=index
+            :class="{active: currentTab === index}"
+            @click="currentTab = index"> {{tab}}</button>
 
       <div id="TabContent">
         <div v-show="currentTab == 0">
@@ -96,46 +98,46 @@ export default {
   src: url(../assets/font/Maplestory_Bold.ttf) format("truetype"), url(../assets/font/Maplestory_Light.ttf) format("truetype");
 }
 
-button {
-  background-color: rgb(120, 120, 120);
-  color: white;
-  margin-right: 2px;
-  padding: 2px 9px;
-  border-radius: 15px 15px 0 0;
-  outline: none;
-  box-shadow: none;
-  font-family: Maple;
-}
-button:hover {
-  padding-top: 10px;
-  border-radius: 15px 15px 0 0;
-  background-color: #f08c8c;
-  transition: all 1s;
-}
-.active {
-  padding-top: 10px;
-  border-radius: 15px 15px 0 0;
-  background-color: #f08c8c;
-  transition: all 1s;
-}
-#TabContent {
-  border: 1px solid gray;
-  background-color: white;
-}
-span {
-  padding: 20px;
-  font-family: Maple;
-}
-.small {
-  width: 35%;
-  height: 20%;
-  margin: 0 auto;
-  padding: 0;
-}
-.middle {
-  width: 20%;
-  height: 20%;
-  margin: 30px auto;
-  padding: 0;
-}
+    button {
+		background-color: rgb(120, 120, 120);
+        color: white;
+        margin-right: 2px;
+        padding: 2px 9px;
+        border-radius: 15px 15px 0 0;
+		outline: none;
+		box-shadow: none;
+		font-family: Maple;
+    }
+	button:hover {
+		padding-top: 10px;
+		border-radius: 15px 15px 0 0;
+		background-color:#f08c8c;
+		transition: all 1s;
+	}
+	.active {
+		padding-top: 10px;
+		border-radius: 15px 15px 0 0;
+		background-color: #f08c8c;
+		transition: all 1s;
+	}
+    #TabContent {
+        border: 1px solid gray;
+        background-color: white;
+    }
+	span {
+		padding: 20px;
+		font-family: Maple;
+	}
+	.small {
+		width: 35%;
+		height: 20%;
+		margin: 0 auto;
+		padding: 0;
+ 	}
+	.middle {
+		width: 20%;
+		height: 20%;
+		margin: 30px auto;
+		padding: 0;
+ 	}
 </style>
