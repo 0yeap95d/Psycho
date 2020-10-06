@@ -16,9 +16,9 @@
          Copyright© COSAT TEAM All Rights Reserved.
       </v-card-text>
 
-      <v-divider></v-divider>
+      <v-divider light></v-divider>
 
-      <v-card-text class="white--text">
+      <v-card-text class="black--text">
         {{ new Date().getFullYear() }} — <strong>COSAT</strong>
       </v-card-text>
     </v-card>

@@ -1,26 +1,19 @@
 <template>
-  <v-container pa-0>
+  <v-container>
     <div id="tabs">
-      <button
-        v-for="(tab, index) in tabs"
-        :key="index"
-        :class="{active: currentTab === index}"
-        @click="currentTab = index"
-      >{{tab}}</button>
+      <button v-for="(tab, index) in tabs" :key="index" :class="{ active: currentTab === index }" @click="currentTab = index">{{ tab }}</button>
 
       <div id="TabContent">
-        <div v-show="currentTab==0">
+        <div v-show="currentTab == 0">
           <v-layout column>
-            <span style="font-size:20pt;">
-              <img src="../assets/insta.png" height="20px" width="20px" />&nbsp;instagram 인기 키워드
-            </span>
+            <span style="font-size:20pt;"> <img src="../assets/insta.png" height="20px" width="20px" />&nbsp;instagram 인기 키워드 </span>
             <v-divider class="mb-5"></v-divider>
             <v-flex class="white">
               <word-cloud></word-cloud>
             </v-flex>
           </v-layout>
         </div>
-        <div v-show="currentTab==1">
+        <div v-show="currentTab == 1">
           <v-layout column>
             <span style="font-size:20pt;">사람들은 지금..?</span>
             <v-divider class="mb-5"></v-divider>
@@ -28,12 +21,12 @@
               <v-list-item v-for="(item, i) in items" v-bind:key="i">
                 <img src="../assets/covidRemove.png" height="30px" width="30px" />
                 &nbsp;
-                {{item.value}}
+                {{ item.value }}
               </v-list-item>
             </v-list>
           </v-layout>
         </div>
-        <div v-show="currentTab==2">
+        <div v-show="currentTab == 2">
           <v-layout column>
             <span style="font-size:20pt;">코로나 한눈에 확인하기</span>
             <v-divider class="mb-5"></v-divider>
@@ -60,10 +53,10 @@
 </template>
 
 <script>
-import WordCloud from "../components/WordCloud";
-import DoughnutChart from "../components/Chart/DoughnutChart";
+import WordCloud from "../components/WordCloud"
+import DoughnutChart from "../components/Chart/DoughnutChart"
 // import BarChart from "../components/Chart/BarChart";
-import CoronaTotalChartForm from "../components/Chart/CoronaTotalChartForm";
+import CoronaTotalChartForm from "../components/Chart/CoronaTotalChartForm"
 
 export default {
   components: {
@@ -77,31 +70,30 @@ export default {
       items: [],
       currentTab: 0,
       tabs: ["HOT 키워드", "sns 파악하기", "코로나 정보"],
-    };
+    }
   },
   mounted() {
-    this.getContents();
+    this.getContents()
   },
   methods: {
     getContents() {
-      let contentList = new Array();
-      d3.csv("content.csv", function (error, data) {
-        if (error) throw error;
+      let contentList = new Array()
+      d3.csv("content.csv", function(error, data) {
+        if (error) throw error
         for (var i = 1; i < data.length; i++) {
-          contentList.push({ value: data[i][0] });
+          contentList.push({ value: data[i][0] })
         }
-      });
-      this.items = contentList;
+      })
+      this.items = contentList
     },
   },
-};
+}
 </script>
 
 <style scoped>
 @font-face {
   font-family: "Maple";
-  src: url(../assets/font/Maplestory_Bold.ttf) format("truetype"),
-    url(../assets/font/Maplestory_Light.ttf) format("truetype");
+  src: url(../assets/font/Maplestory_Bold.ttf) format("truetype"), url(../assets/font/Maplestory_Light.ttf) format("truetype");
 }
 
 button {
@@ -128,6 +120,7 @@ button:hover {
 }
 #TabContent {
   border: 1px solid gray;
+  background-color: white;
 }
 span {
   padding: 20px;

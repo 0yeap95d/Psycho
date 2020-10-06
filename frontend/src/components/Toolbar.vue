@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar id="app-toolbar" elevation="0">
+  <v-app-bar color="white" id="app-toolbar" elevation="0">
     <v-spacer v-if="!responsive" />
 
     <v-toolbar-title @click="goSearchPage('home')">싸이코</v-toolbar-title>
@@ -13,11 +13,10 @@
     <v-app-bar-nav-icon
       v-if="responsive"
       @click.stop="onClickDrawer"
-      style="-webkit-filter: drop-shadow(0 0 0 green);filter: drop-shadow(0 0 0 black);"
     ></v-app-bar-nav-icon>
 
     <v-layout v-if="!responsive" justify-end>
-      <v-menu>
+      <v-menu rounded>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             color="gray"
@@ -36,7 +35,7 @@
             background-image: linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%);
             background-repeat: no-repeat;  
             background-size: 100% 100%;
-            border-radius: 20px;">
+            font-family: Maple;">
           <v-list-item v-for="(item, i) in items.slice(0,10)" :key="i">
             <v-list-item-title>{{i + 1}}위 {{ item.title }}</v-list-item-title>
           </v-list-item>
@@ -44,7 +43,7 @@
       </v-menu>
 
       <v-btn text color="#f08c8c" @click="goSearchPage('search')">
-        <span>지도 검색</span>
+        <span>지도검색</span>
       </v-btn>
 
       <v-btn text color="#f08c8c" @click="goSearchPage('statistic')">
@@ -123,3 +122,13 @@ export default {
 };
 </script>
 
+<style scoped>
+@font-face { 
+    font-family: 'Maple'; 
+    src: url(../assets/font/Maplestory_Bold.ttf) format('truetype'); 
+}
+
+.v-list-item {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+</style>

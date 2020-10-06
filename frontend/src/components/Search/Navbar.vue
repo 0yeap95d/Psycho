@@ -1,7 +1,7 @@
 <template>
-  <v-app-bar dense elevation="1">
+  <v-app-bar dense elevation="2" color="white">
     <v-layout>
-      <v-btn text color="gray" @click="goSearchPage">
+      <v-btn text color="gray">
         <span>맛집검색</span>
       </v-btn>
 
