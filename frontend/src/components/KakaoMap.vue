@@ -1,6 +1,6 @@
 <template>
   <div id="kakaoMap">
-    <div id="map" style="width: 100%; height: 1000px"></div>
+    <div id="mapMain" :style="myStyle"></div>
   </div>
 </template>
 
@@ -9,6 +9,10 @@ export default {
   name: "kakaoMap",
   data() {
     return {
+      myStyle: {
+        height: "",
+        width: "" 
+      },
       map: "",
       chicken: {
         positions: [
@@ -520,6 +524,9 @@ export default {
       },
     };
   },
+  created() {
+    this.initSize();
+  },
 
   mounted() {
     this.initMap();
@@ -528,9 +535,15 @@ export default {
   },
 
   methods: {
+    initSize() {
+      let myheight = window.innerHeight - 112;
+      let mywidth = "100%";
+      this.myStyle.height = myheight + "px";
+      this.myStyle.width = mywidth;
+    },
     initMap() {
       console.log("initMap");
-      this.map = new kakao.maps.Map(document.getElementById("map"), {
+      this.map = new kakao.maps.Map(document.getElementById("mapMain"), {
         // 지도를 표시할 div
         center: new kakao.maps.LatLng(36.2683, 127.6358), // 지도의 중심좌표
         level: 10, // 지도의 확대 레벨
