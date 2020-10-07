@@ -22,14 +22,14 @@
                     </a>
                   </v-flex>
                   
-                  <img class="MainArticle" :src="news[3*i].img.split('&')[0]"/>
+                  <img class="MainArticle" :src="news[3*i].img"/>
                   <div class="news-contents">{{news[3*i].content}}</div>
                   </v-layout>
                 </v-flex>
                 <v-flex xs6>
                   <v-layout column>
                   <div class="Article2">
-                  <img class="SubArticle" :src="news[3*i+1].img.split('&')[0]" align="left"/>
+                  <img class="SubArticle" :src="news[3*i+1].img" align="left"/>
                   <span class="Sub-title">{{news[3*i+1].title}}</span>
                   <a :href="news[3*i+1].url" target="_blank">
                     <img class="link-img" src="../../assets/link.png">
@@ -37,7 +37,7 @@
                   <div class="Sub-contents">{{news[3*i+1].content}}</div>
                   </div>
                   <div class="Article2">
-                  <img class="SubArticle" :src="news[3*i+2].img.split('&')[0]" align="left" />
+                  <img class="SubArticle" :src="news[3*i+2].img" align="left" />
                   <span class="Sub-title">{{news[3*i+2].title}}</span>
                   <a :href="news[3*i+2].url" target="_blank">
                     <img class="link-img" src="../../assets/link.png">
@@ -112,6 +112,11 @@ export default {
         .then(res => {
           console.log(res)
           this.news = res;
+
+          for (var i = 0; i < this.news.length; i++) {
+            this.news[i].img = this.news[i].img.split('&')[0];
+          }
+          
           console.log(this.news)
           console.log(this.news[0].img.split('&')[0])
         });
