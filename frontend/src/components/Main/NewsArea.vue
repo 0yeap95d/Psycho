@@ -16,22 +16,33 @@
 
                 <v-flex xs6>
                   <v-layout column>
-                  <v-flex class="news-title">日 지바롯데, 코로나19 집단 감염…선수 8명 등 13명 확진(종합)</v-flex>
-                  <img class="MainArticle" src="https://picsum.photos/1920/1080?random"/>
-                  <div class="news-contents">일본프로야구 지바 롯데 말린스에서 신종 코로나바이러스 감염증(코로나19)이 확산하고 있다. 일본 스포츠전문매체 '닛칸스포츠'는 6일 내야수 도리타니 다카시를 포함해 지바 롯데에서 총 11명의 코로나19 신규...</div>
+                  <v-flex class="news-title">{{news[3*i].title}}
+                    <a :href="news[3*i].url" target="_blank">
+                      <img class="link-img" src="../../assets/link.png">
+                    </a>
+                  </v-flex>
+                  
+                  <img class="MainArticle" :src="news[3*i].img.split('&')[0]"/>
+                  <div class="news-contents">{{news[3*i].content}}</div>
                   </v-layout>
                 </v-flex>
                 <v-flex xs6>
                   <v-layout column>
                   <div class="Article2">
-                  <img class="SubArticle" src="https://picsum.photos/1920/1080?random" align="left"/>
-                  <span class="Sub-title">코로나19 신규 확진자 75명…엿새째 두 자릿수</span>
-                  <div class="Sub-contents">5일 코로나19 신규 확진자가 75명 발생해 엿새째 두 자릿수를 유지했다. 중앙방역대책본부(방대본)는 이날 0시 기준으로 코로나19 국내 발생 신규 확진자는 66명, 국외유입 사례는 9명이라고 밝혔다. 이에 따른...</div>
+                  <img class="SubArticle" :src="news[3*i+1].img.split('&')[0]" align="left"/>
+                  <span class="Sub-title">{{news[3*i+1].title}}</span>
+                  <a :href="news[3*i+1].url" target="_blank">
+                    <img class="link-img" src="../../assets/link.png">
+                  </a>
+                  <div class="Sub-contents">{{news[3*i+1].content}}</div>
                   </div>
                   <div class="Article2">
-                  <img class="SubArticle" src="https://picsum.photos/1920/1080?random" align="left" />
-                  <span class="Sub-title">'코로나 대출' 받은 소상공인, 셋 중 한명은 끼워팔기 당해</span>
-                  <div class="Sub-contents">현행법 안 어기는 선에서 신용카드·보험 등 끼워팔아 전북·우리·하나은행, 끼워팔기 비율 50% 웃돌기도 시중은행이 신종 코로나 바이러스 감염증(코로나19) 사태로 어려움을 겪는 소상공인에게 대출을 하면서...</div>
+                  <img class="SubArticle" :src="news[3*i+2].img.split('&')[0]" align="left" />
+                  <span class="Sub-title">{{news[3*i+2].title}}</span>
+                  <a :href="news[3*i+2].url" target="_blank">
+                    <img class="link-img" src="../../assets/link.png">
+                  </a>
+                  <div class="Sub-contents">{{news[3*i+2].content}}</div>
                   </div>
                   </v-layout>
                 </v-flex>
@@ -40,7 +51,7 @@
             
           </v-layout>
           <figcaption>
-            (샌프란시스코=연합뉴스) 정성호 특파원
+            COSAT
           </figcaption>
         </figure>
       </slide>
@@ -56,17 +67,60 @@ export default {
     return {
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight,
-      slides: 7,
+      slides: 3,
+      news: [],
     };
   },
   components: {
     Carousel3d,
     Slide,
   },
+  created() {
+    const axios = require("axios");
+    const cheerio = require("cheerio");
+    const log = console.log;
+    
+    const getHtml = async () => {
+        try {
+            console.log("good")
+            return await axios.get("https://search.naver.com/search.naver?&where=news&query=%EC%BD%94%EB%A1%9C%EB%82%98&sm=tab_pge&sort=0&photo=0&field=0&reporter_article=&pd=0&ds=&de=&docid=&nso=so:r,p:all,a:all&mynews=0&cluster_rank=46&start=0&refresh_start=0");
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    getHtml()
+        .then(html => {
+            let ulList = [];
+            const $ = cheerio.load(html.data);
+            const $bodyList = $("div.news ul.type01").children("li");
+            
+            $bodyList.each(function(i, elem){
+                ulList[i] = {
+                    // title: $(this).find('strong.tit-news').text(),
+                    title: $(this).find('dl dt a').attr('title'),
+                    url: $(this).find('dl dt a').attr('href'),
+                    public: $(this).find('span._sp_each_source').text(),
+                    img: $(this).find('div a img').attr('src'),
+                    content: $(this).find('dl dd:nth-child(3)').text(),
+                };
+            });
+
+            const data = ulList.filter(n => n.title);
+            return data;
+        })
+        .then(res => {
+          console.log(res)
+          this.news = res;
+          console.log(this.news)
+          console.log(this.news[0].img.split('&')[0])
+        });
+  },
 };
 </script>
 
 <style>
+
 .carousel-3d-container figure {
   margin: 0;
   height: 80%;
@@ -135,5 +189,10 @@ export default {
 }
 .Article2 {
   padding: 20px 30px 40px 0;
+}
+.carousel-3d-container figure .link-img{
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
 }
 </style>
