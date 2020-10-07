@@ -1,6 +1,6 @@
 <template>
   <div id="ChartForm">
-    <corona-total-chart :chart-data="ChartData" :options="options" :width="1000" :height="400" />
+    <corona-total-chart :chart-data="ChartData" :width="5" :height="2" />
     <input id="startDate" v-model="startDate" type="date" />
     <input id="endDate" v-model="endDate" type="date" />
   </div>
@@ -130,10 +130,11 @@ export default {
   text-align-last: center;
   margin: 10px;
 }
+
 #ChartForm {
   border: 1px solid gray;
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 90%;
 }
 </style>

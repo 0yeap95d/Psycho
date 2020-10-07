@@ -71,7 +71,7 @@ export default {
             datasets: [
               {
                 label: "확진자",
-                backgroundColor: ["#FF5555", "#55FF55"],
+                backgroundColor: ["#8c8cf4", "#f48c8c"],
                 data: [0, 0],
               },
             ],

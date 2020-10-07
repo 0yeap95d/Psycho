@@ -89,7 +89,7 @@ export default {
             datasets: [
               {
                 label: "일별 증가 확진자",
-                backgroundColor: "#FF5555",
+                backgroundColor: "#8c8cf4",
                 data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
               },
             ],

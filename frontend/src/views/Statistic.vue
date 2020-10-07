@@ -26,9 +26,8 @@
             <v-divider class="mb-5" />
             <v-list three-line style="max-height: calc(100vh - 260px)" class="overflow-y-auto">
               <v-list-item v-for="(item, i) in items" v-bind:key="i">
-                <img src="../assets/covidRemove.png" height="30px" width="30px" />
-                &nbsp;
-                {{ item.value }}
+                <!-- <img src="../assets/covidRemove.png" height="30px" width="30px" /> -->
+                <span class="balloonTalk">&nbsp;{{ item.value }}</span>
               </v-list-item>
             </v-list>
           </v-layout>
@@ -112,6 +111,38 @@ export default {
   src: url(../assets/font/Maplestory_Bold.ttf) format("truetype");
 }
 
+/*  */
+.balloonTalk {
+	position: relative;
+	background: #ffc0c0;
+	border: 1px solid gray;
+  border-radius: 10px;
+}
+.balloonTalk:after, .balloonTalk:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.balloonTalk:after {
+	border-color: rgba(232, 232, 252, 0);
+	border-right-color: #ffc0c0;;
+	border-width: 10px;
+	margin-top: -10px;
+}
+.balloonTalk:before {
+	border-color: rgba(94, 94, 102, 0);
+	border-right-color: #5e5e66;
+	border-width: 11px;
+	margin-top: -11px;
+}
+
+/*  */
 button {
   background-color: rgb(120, 120, 120);
   color: white;
