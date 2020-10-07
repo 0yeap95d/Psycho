@@ -1,15 +1,22 @@
 import Axios from "axios";
 
-const apiUrl = "http://localhost:8000/stores";
+const apiUrl = "http://j3d2203.p.ssafy.io:8000/stores";
 
 const requestHotel = (callback, errorCallback) => {
-    Axios.get(apiUrl + '/hotels' + '?name=종로',)
+    Axios.get(apiUrl + '/hotels')
         .then(res => callback(res))
         .catch(error => errorCallback(error))
 }
 
+const requestRecHotel = (data, callback, errorCallback) => {
+    Axios.post(apiUrl + '/recommend/hotels', data)
+        .then(res => callback(res))
+        .catch(error => errorCallback(error)) 
+}
+
 const HotelApi = {
     requestHotel: (callback, errorCallback) => requestHotel(callback, errorCallback),
+    requestRecHotel: (data, callback, errorCallback) => requestRecHotel(data, callback, errorCallback),
 }
 
 export default HotelApi
