@@ -1,6 +1,6 @@
 <template>
   <div id="ChartForm">
-    <corona-total-chart :chart-data="ChartData" />
+    <corona-total-chart :chart-data="ChartData" :options="options" :width="1000" :height="400" />
     <input id="startDate" v-model="startDate" type="date" />
     <input id="endDate" v-model="endDate" type="date" />
   </div>
@@ -19,25 +19,15 @@ export default {
       startDate: null,
       endDate: null,
       data: null,
-      ChartData: {
-        labels: [],
-        datasets: [
-          {
-            label: "누적 확진자",
-            backgroundColor: "#FF5555",
-            data: [],
-          },
-          {
-            label: "누적 격리해제",
-            backgroundColor: "#55FF55",
-            data: [],
-          },
-          {
-            label: "누적 사망자",
-            backgroundColor: "#5555FF",
-            data: [],
-          },
-        ],
+      ChartData: {},
+      options: {
+        title: {
+          display: true,
+          text: "코로나 일반 현황",
+        },
+        legend: {
+          display: true,
+        },
       },
     };
   },
@@ -50,10 +40,11 @@ export default {
     },
   },
   mounted() {
-    // this.startDate = this.getFormatDate(new Date());
-    // this.endDate = this.getFormatDate(new Date());
-    this.startDate = this.getFormatDate(new Date("2020-07-01"));
-    this.endDate = this.getFormatDate(new Date("2020-09-01"));
+    let defday = new Date();
+    defday.setDate(defday.getDate() - 1);
+    this.endDate = this.getFormatDate(defday);
+    defday.setMonth(defday.getMonth() - 1);
+    this.startDate = this.getFormatDate(defday);
     this.getChart();
   },
   methods: {
@@ -66,6 +57,7 @@ export default {
       return year + "-" + month + "-" + day;
     },
     getChart() {
+      console.log(this.startDate + this.endDate);
       let s = this.startDate.split("-");
       let e = this.endDate.split("-");
       this.data = {
@@ -87,17 +79,20 @@ export default {
             datasets: [
               {
                 label: "누적 확진자",
-                backgroundColor: "#FF5555",
+                borderColor: "#f48c8c",
+                backgroundColor: "rgba(244, 140, 140, 0.3)",
                 data: [],
               },
               {
                 label: "누적 격리해제",
-                backgroundColor: "#55FF55",
+                borderColor: "#8cf48c",
+                backgroundColor: "rgba(140, 244, 140, 0.5)",
                 data: [],
               },
               {
                 label: "누적 사망자",
-                backgroundColor: "#5555FF",
+                borderColor: "#8c8cf4",
+                backgroundColor: "rgba(140, 140, 244, 1)",
                 data: [],
               },
             ],
@@ -130,7 +125,8 @@ export default {
 </script>
 
 <style scoped>
-#startDate, #endDate {
+#startDate,
+#endDate {
   text-align-last: center;
   margin: 10px;
 }
