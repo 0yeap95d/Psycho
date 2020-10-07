@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const apiUrl = "https://j3d203.p.ssafy.io:8000/api";
+const apiUrl = "https://j3d203.p.ssafy.io/api";
 
 const requestHotel = (callback, errorCallback) => {
     Axios.get(apiUrl + '/stores/hotels')
