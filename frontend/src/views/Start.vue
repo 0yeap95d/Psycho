@@ -12,9 +12,9 @@
             <div @click="onCovidClick"> </div>
             <div @click="onCovidClick"> </div>
         </div>
-        <h2><span style="font-size:70pt;">싸</span>우자<br>
-        <span style="font-size:70pt;">&emsp;&emsp;이</span>기자<br>
-        <span style="font-size:70pt;">&emsp;&emsp;&emsp;&emsp;코</span>로나</h2>
+        <h2><span style="font-size:70pt; color:#f08c8c;">싸</span>우자<br>
+        <span style="font-size:70pt; color:#f08c8c;">&emsp;&emsp;이</span>기자<br>
+        <span style="font-size:70pt; color:#f08c8c;">&emsp;&emsp;&emsp;&emsp;코</span>로나</h2>
     </div>
 </template>
 
@@ -43,7 +43,8 @@ padding: 0;
 width: 100%;
 height: 100vh;
 /* linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%) */
-background-image: url("../assets/strange2.png");
+background-image: linear-gradient(180deg, rgba(240, 140, 140, 0.3) 0%, rgba(240,140,140,0.2) 35%, rgba(0, 0, 0, 0.4) 100%)
+,url("../assets/strange2.png");
 background-repeat: no-repeat, no-repeat;  
 background-size: 100% 100%;
 }
@@ -53,7 +54,7 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
-color: #000000;
+color: #cccccc;
 font-family: Maple;
 font-weight: 900;
 color: #b41616;

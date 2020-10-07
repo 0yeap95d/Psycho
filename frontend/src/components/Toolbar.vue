@@ -43,11 +43,13 @@
       </v-menu>
 
       <v-btn text color="#f08c8c" @click="goSearchPage('search')">
+        <img src="../assets/search.png" height="17px" width="17px">&nbsp;
         <span>지도검색</span>
       </v-btn>
 
       <v-btn text color="#f08c8c" @click="goSearchPage('statistic')">
-        <span>해시태그</span>
+        <img src="../assets/coronaData.png" height="17px" width="17px">&nbsp;
+        <span>코로나는 지금..</span>
       </v-btn>
     </v-layout>
 

@@ -21,8 +21,8 @@
     this.target_frame = document.getElementById(target_frame);
     this.timer = null;
     this.counter();
-};
-numberCounter.prototype.counter = function() {
+  }
+  numberCounter.prototype.counter = function() {
     var self = this;
     this.diff = this.target_count - this.count;
      
