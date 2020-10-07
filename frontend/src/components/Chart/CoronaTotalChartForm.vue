@@ -1,6 +1,6 @@
 <template>
   <div id="ChartForm">
-    <corona-total-chart :chart-data="ChartData" />
+    <corona-total-chart :chart-data="ChartData" :width=5 :height=2 />
     <input id="startDate" v-model="startDate" type="date" />
     <input id="endDate" v-model="endDate" type="date" />
   </div>
@@ -87,17 +87,20 @@ export default {
             datasets: [
               {
                 label: "누적 확진자",
-                backgroundColor: "#FF5555",
+                borderColor: "#f48c8c",
+                backgroundColor: "rgba(244, 140, 140, 0.3)",
                 data: [],
               },
               {
                 label: "누적 격리해제",
-                backgroundColor: "#55FF55",
+                borderColor: "#8cf48c",
+                backgroundColor: "rgba(140, 244, 140, 0.5)",
                 data: [],
               },
               {
                 label: "누적 사망자",
-                backgroundColor: "#5555FF",
+                borderColor: "#8c8cf4",
+                backgroundColor: "rgba(140, 140, 244, 1)",
                 data: [],
               },
             ],
@@ -134,10 +137,11 @@ export default {
   text-align-last: center;
   margin: 10px;
 }
+
 #ChartForm {
   border: 1px solid gray;
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 90%;
 }
 </style>
