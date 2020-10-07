@@ -118,7 +118,12 @@ export default {
 </script>
 
 <style scoped>
+#date {
+  margin-top: 10px;
+}
 #ChartForm {
-  border: 1px solid gray;
+  text-align: center;
+  width: 33%;
+  height: 430px;
 }
 </style>

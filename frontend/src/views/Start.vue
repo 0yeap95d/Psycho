@@ -43,7 +43,8 @@ padding: 0;
 width: 100%;
 height: 100vh;
 /* linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%) */
-background-image: url("../assets/strange2.png");
+background-image: linear-gradient(180deg, rgba(240, 140, 140, 0.3) 0%, rgba(240,140,140,0.2) 35%, rgba(0, 0, 0, 0.4) 100%)
+,url("../assets/strange2.png");
 background-repeat: no-repeat, no-repeat;  
 background-size: 100% 100%;
 }

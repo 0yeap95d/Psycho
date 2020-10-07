@@ -130,7 +130,14 @@ export default {
 </script>
 
 <style scoped>
+#startDate, #endDate {
+  text-align-last: center;
+  margin: 10px;
+}
 #ChartForm {
   border: 1px solid gray;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
 }
 </style>
