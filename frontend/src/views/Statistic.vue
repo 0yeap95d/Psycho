@@ -114,7 +114,7 @@ export default {
 /*  */
 .balloonTalk {
 	position: relative;
-	background: #ffc0c0;
+	background: #e8e8fc;
 	border: 1px solid gray;
   border-radius: 10px;
 }
@@ -131,7 +131,7 @@ export default {
 
 .balloonTalk:after {
 	border-color: rgba(232, 232, 252, 0);
-	border-right-color: #ffc0c0;;
+	border-right-color: #e8e8fc;
 	border-width: 10px;
 	margin-top: -10px;
 }
