@@ -1,15 +1,53 @@
 <template>
     <div class=test-body>
         <div class=test-container>
-            <span class="test-count">71441670</span>
-            <span class="test-count">2130735</span>
-            <span class="test-count">4523383</span>
-            <span class="test-count">9332313</span>
+          <span class=small-container>
+            <span style="font-size:80%;">확진환자</span>
+            <br><span id="counter1"></span></span>
+          <span class=small-container>
+            <span style="font-size:80%;">격리해제</span>
+            <br><span id="counter2"></span></span>
+          <span class=small-container>
+            <span style="font-size:80%;">사망</span><br>
+            <span id="counter3"></span></span>
         </div>
     </div>
 </template>
 
-<style>
+<script>
+  function numberCounter(target_frame, target_number) {
+    this.count = 0; this.diff = 0;
+    this.target_count = parseInt(target_number);
+    this.target_frame = document.getElementById(target_frame);
+    this.timer = null;
+    this.counter();
+};
+numberCounter.prototype.counter = function() {
+    var self = this;
+    this.diff = this.target_count - this.count;
+     
+    if(this.diff > 0) {
+        self.count += Math.ceil(this.diff / 5);
+    }
+     
+    this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+     
+    if(this.count < this.target_count) {
+        this.timer = setTimeout(function() { self.counter(); }, 60);
+    } else {
+        clearTimeout(this.timer);
+    }
+};
+export default {
+  mounted() {
+    new numberCounter("counter1", 24353);
+    new numberCounter("counter2", 22334);
+    new numberCounter("counter3", 425);
+  }
+}
+</script>
+
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 .test-body {
@@ -33,6 +71,14 @@
 }
 
 .test-container {
+  width: 100%;
   display: flex;
+  text-align: center;
+  color: #f2f2f2;
+  font-size: 2.5rem;
+}
+
+.small-container {
+  width: 34%;
 }
 </style>

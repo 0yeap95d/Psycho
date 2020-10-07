@@ -25,7 +25,7 @@
     </v-carousel-item>
 
     <v-carousel-item>
-      <v-img src="../../assets/hero04.jpg">
+      <v-img src="../../assets/hero05.jpg">
         <div class="display-33">응원합니다!</div>
       </v-img>
     </v-carousel-item>
@@ -47,7 +47,7 @@
 export default {
   data() {
     return {
-      windowHeight: window.innerHeight,
+      windowHeight: window.innerHeight - 64,
       colors: [
         "indigo",
         "warning",

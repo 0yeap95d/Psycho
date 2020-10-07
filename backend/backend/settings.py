@@ -136,8 +136,8 @@ PASSWORD_HASHERS = (
     "django.contrib.auth.hashers.CryptPasswordHasher",
 )
 
-##CORS
-CORS_ORIGIN_ALLOW_ALL=True
+# CORS
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_METHODS = (

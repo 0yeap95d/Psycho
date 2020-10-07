@@ -28,7 +28,7 @@ def getCovid19Info(request):
     if request.method == 'GET':
         data = Covid19Info.objects.all()
         serializer = Covid19InfoSerializer(data, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})
     elif request.method == 'POST':
         param = json.loads(request.body)
 
@@ -38,7 +38,7 @@ def getCovid19Info(request):
 
         data = Covid19Info.objects.filter(createDt__range=(start, end))
         serializer = Covid19InfoSerializer(data, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})
 
 
 @csrf_exempt
@@ -46,7 +46,7 @@ def getCovid19GenAgeInfo(request):
     if request.method == 'GET':
         data = Covid19GenAgeInfo.objects.all()
         serializer = Covid19GenAgeInfoSerializer(data, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})
     elif request.method == 'POST':
         param = json.loads(request.body)
 
@@ -57,7 +57,7 @@ def getCovid19GenAgeInfo(request):
         data = Covid19GenAgeInfo.objects.filter(
             createDt__range=(start, end), gubun__istartswith=param['gubun'])
         serializer = Covid19GenAgeInfoSerializer(data, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})
 
 
 @csrf_exempt
@@ -65,7 +65,7 @@ def getCovid19SidoInfo(request):
     if request.method == 'GET':
         data = Covid19SidoInfo.objects.all()
         serializer = Covid19SidoInfoSerializer(data, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})
     elif request.method == 'POST':
         param = json.loads(request.body)
 
@@ -76,4 +76,4 @@ def getCovid19SidoInfo(request):
         data = Covid19SidoInfo.objects.filter(
             createDt__range=(start, end), gubun__istartswith=param['gubun'])
         serializer = Covid19SidoInfoSerializer(data, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})

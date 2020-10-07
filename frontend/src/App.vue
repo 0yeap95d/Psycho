@@ -26,4 +26,6 @@ export default {
 #app {
   background-color: #fce8e8;
 }
+body{-ms-overflow-style:none; }
+body::-webkit-scrollbar { display:none; }
 </style>
