@@ -57,7 +57,6 @@ transform: translate(-50%,-50%);
 color: #cccccc;
 font-family: Maple;
 font-weight: 900;
-color: #b41616;
 text-transform: uppercase;
 font-size: 60px;
 }
