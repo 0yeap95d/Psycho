@@ -53,6 +53,8 @@ def recommend_store(request):
             data['age'], data['gender'], sido, gugun, dong)
         prediction = recommender.make_prediction()
 
+        print(prediction)
+
         category_list = list()
         for category in prediction:
             category_list.extend(CATEGORY_DICT.get(category))
