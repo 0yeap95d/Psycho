@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import CoronaTotalChart from "./CoronaTotalChart";
-import CoronaApi from "../../api/CoronaApi";
+import CoronaTotalChart from "./CoronaTotalChart"
+import CoronaApi from "../../api/CoronaApi"
 
 export default {
   components: {
@@ -29,37 +29,36 @@ export default {
           display: true,
         },
       },
-    };
+    }
   },
   watch: {
-    startDate: function () {
-      this.getChart();
+    startDate: function() {
+      this.getChart()
     },
-    endDate: function () {
-      this.getChart();
+    endDate: function() {
+      this.getChart()
     },
   },
   mounted() {
-    let defday = new Date();
-    defday.setDate(defday.getDate() - 1);
-    this.endDate = this.getFormatDate(defday);
-    defday.setMonth(defday.getMonth() - 1);
-    this.startDate = this.getFormatDate(defday);
-    this.getChart();
+    let defday = new Date()
+    defday.setDate(defday.getDate() - 1)
+    this.endDate = this.getFormatDate(defday)
+    defday.setMonth(defday.getMonth() - 1)
+    this.startDate = this.getFormatDate(defday)
+    this.getChart()
   },
   methods: {
     getFormatDate(date) {
-      var year = date.getFullYear();
-      var month = 1 + date.getMonth();
-      month = month >= 10 ? month : "0" + month;
-      var day = date.getDate();
-      day = day >= 10 ? day : "0" + day;
-      return year + "-" + month + "-" + day;
+      var year = date.getFullYear()
+      var month = 1 + date.getMonth()
+      month = month >= 10 ? month : "0" + month
+      var day = date.getDate()
+      day = day >= 10 ? day : "0" + day
+      return year + "-" + month + "-" + day
     },
     getChart() {
-      console.log(this.startDate + this.endDate);
-      let s = this.startDate.split("-");
-      let e = this.endDate.split("-");
+      let s = this.startDate.split("-")
+      let e = this.endDate.split("-")
       this.data = {
         syear: s[0] * 1,
         smonth: s[1] * 1,
@@ -67,8 +66,8 @@ export default {
         eyear: e[0] * 1,
         emonth: e[1] * 1,
         eday: e[2] * 1,
-      };
-      this.getDatasets(this.data);
+      }
+      this.getDatasets(this.data)
     },
     getDatasets(data) {
       CoronaApi.requestCorona(
@@ -96,21 +95,21 @@ export default {
                 data: [],
               },
             ],
-          };
+          }
           for (var i = 0; i < res.data.length; i++) {
-            this.ChartData.labels.push(res.data[i].stateDt);
-            this.ChartData.datasets[0].data.push(res.data[i].decideCnt);
-            this.ChartData.datasets[1].data.push(res.data[i].clearCnt);
-            this.ChartData.datasets[2].data.push(res.data[i].deathCnt);
+            this.ChartData.labels.push(res.data[i].stateDt)
+            this.ChartData.datasets[0].data.push(res.data[i].decideCnt)
+            this.ChartData.datasets[1].data.push(res.data[i].clearCnt)
+            this.ChartData.datasets[2].data.push(res.data[i].deathCnt)
           }
         },
         (error) => {
-          console.log(error);
+          console.log(error)
         }
-      );
+      )
     },
   },
-};
+}
 /*
 요청 json 형식
 {

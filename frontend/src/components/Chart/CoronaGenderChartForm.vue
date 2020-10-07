@@ -21,7 +21,7 @@ export default {
       options: {
         title: {
           display: true,
-          text: "성별 현황",
+          text: "성별 확진자 합계 현황",
         },
         legend: {
           display: false,

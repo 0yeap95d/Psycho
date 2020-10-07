@@ -21,7 +21,7 @@ export default {
       options: {
         title: {
           display: true,
-          text: "연령별 현황",
+          text: "연령별 확진자 합계 현황",
         },
         legend: {
           display: false,
@@ -81,7 +81,17 @@ export default {
             datasets: [
               {
                 label: "확진자",
-                backgroundColor: "#f48c8c",
+                backgroundColor: [
+                  "#FFF8E1",
+                  "#FFECB3",
+                  "#FFE082",
+                  "#FFD54F",
+                  "#FFCA28",
+                  "#FFB300",
+                  "#FFA000",
+                  "#FF8F00",
+                  "#FF6F00",
+                ],
                 data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
               },
             ],
