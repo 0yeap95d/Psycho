@@ -2,13 +2,13 @@
     <div class=test-body>
         <div class=test-container>
           <span class=small-container>
-            <span style="font-size:80%;">확진자</span>
+            <span style="font-size:80%;">확진환자</span>
             <br><span id="counter1"></span></span>
           <span class=small-container>
-            <span style="font-size:80%;">사망자</span>
+            <span style="font-size:80%;">격리해제</span>
             <br><span id="counter2"></span></span>
           <span class=small-container>
-            <span style="font-size:80%;">완치자</span><br>
+            <span style="font-size:80%;">사망</span><br>
             <span id="counter3"></span></span>
         </div>
     </div>
@@ -40,9 +40,9 @@ numberCounter.prototype.counter = function() {
 };
 export default {
   mounted() {
-    new numberCounter("counter1", 21565748);
-    new numberCounter("counter2", 60000);
-    new numberCounter("counter3", 55656565);
+    new numberCounter("counter1", 24353);
+    new numberCounter("counter2", 22334);
+    new numberCounter("counter3", 425);
   }
 }
 </script>

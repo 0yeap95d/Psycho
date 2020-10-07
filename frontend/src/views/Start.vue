@@ -42,8 +42,8 @@ padding: 0;
 .box {
 width: 100%;
 height: 100vh;
-background-image: linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%)
-                    ,url("../assets/untitled.jpg");
+/* linear-gradient(180deg, rgba(240, 140, 140, 0.5) 0%, rgba(240,140,140,0.2) 35%, rgba(255, 255, 255, 0.6) 100%) */
+background-image: url("../assets/strange2.png");
 background-repeat: no-repeat, no-repeat;  
 background-size: 100% 100%;
 }
@@ -56,7 +56,7 @@ transform: translate(-50%,-50%);
 color: #000000;
 font-family: Maple;
 font-weight: 900;
-color: #350303;
+color: #b41616;
 text-transform: uppercase;
 font-size: 60px;
 }
