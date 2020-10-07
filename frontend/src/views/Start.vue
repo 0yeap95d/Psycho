@@ -12,9 +12,9 @@
             <div @click="onCovidClick"> </div>
             <div @click="onCovidClick"> </div>
         </div>
-        <h2><span style="font-size:70pt;">싸</span>우자<br>
-        <span style="font-size:70pt;">&emsp;&emsp;이</span>기자<br>
-        <span style="font-size:70pt;">&emsp;&emsp;&emsp;&emsp;코</span>로나</h2>
+        <h2><span style="font-size:70pt; color:#f08c8c;">싸</span>우자<br>
+        <span style="font-size:70pt; color:#f08c8c;">&emsp;&emsp;이</span>기자<br>
+        <span style="font-size:70pt; color:#f08c8c;">&emsp;&emsp;&emsp;&emsp;코</span>로나</h2>
     </div>
 </template>
 
@@ -54,7 +54,7 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
-color: #000000;
+color: #cccccc;
 font-family: Maple;
 font-weight: 900;
 color: #b41616;
