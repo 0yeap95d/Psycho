@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const apiUrl = "http://j3d2203.p.ssafy.io:8000/api";
+const apiUrl = "https://j3d2203.p.ssafy.io:8000/api";
 
 const requestStore = (callback, errorCallback) => {
     Axios.get(apiUrl + 'stores/restaurants')
