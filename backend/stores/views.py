@@ -73,7 +73,6 @@ def recommend_store(request):
         y_end = float(data['pos_y']) + 0.015
 
         stores = Store.objects.raw('SELECT DISTINCT ss.id, ss.name, ss.tel, ss.address1, ss.pos_x, ss.pos_y, ss.address2, ss.category FROM stores_store ss, danger_level_table dlt WHERE instr(address1,'
-                                   + 'sido) > 0 AND instr(address1, '
                                    + 'gugun) > 0 AND instr(address1, '
                                    + 'dong) > 0 AND dlt.danger_level < 20 AND pos_x BETWEEN '
                                    + str(x_start) + ' AND ' +
