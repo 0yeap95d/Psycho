@@ -6,12 +6,12 @@
         <carousels />
       </v-flex>
 
-      <v-flex v-scroll-reveal.reset="{ delay: 300 }">
+      <v-flex v-scroll-reveal.reset="{ delay: 300, duration: 1500 }">
         <!-- 코로나 현재 상태 -->
         <main-state />
       </v-flex>
 
-      <v-flex v-scroll-reveal.reset="{ delay: 300 }">
+      <v-flex v-scroll-reveal.reset="{ delay: 900, duration: 1500 }">
         <!-- 페이지 소개 -->
         <introduce />
       </v-flex>
@@ -37,6 +37,6 @@ export default {
     MainState,
     Introduce,
     NewsArea,
-  },
+  }
 };
 </script>

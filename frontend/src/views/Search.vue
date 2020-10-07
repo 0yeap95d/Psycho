@@ -174,7 +174,6 @@ export default {
 @font-face { 
     font-family: 'Maple'; 
     src: url(../assets/font/Maplestory_Bold.ttf) format('truetype')
-		,url(../assets/font/Maplestory_Light.ttf) format('truetype'); 
 }
 select:focus {
   outline: none;

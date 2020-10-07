@@ -109,8 +109,7 @@ export default {
 <style scoped>
 @font-face {
   font-family: "Maple";
-  src: url(../assets/font/Maplestory_Bold.ttf) format("truetype"),
-    url(../assets/font/Maplestory_Light.ttf) format("truetype");
+  src: url(../assets/font/Maplestory_Bold.ttf) format("truetype")
 }
 
 button {

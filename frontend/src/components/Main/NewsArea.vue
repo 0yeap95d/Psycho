@@ -69,8 +69,7 @@ export default {
 <style>
 .carousel-3d-container figure {
   margin: 0;
-  background-color: white;
-  height: 100%;
+  height: 80%;
 }
 
 .carousel-3d-container figure .MainArticle {
@@ -99,6 +98,14 @@ export default {
   text-align: right;
   box-sizing: border-box;
 }
+
+.carousel-3d-slide {
+  max-height: 98%;
+  background-color: #f0f0f0;
+  box-shadow: 10px 10px 0px #e0e0e0,
+            10.5px 9.5px 0px black,
+            9.5px 10.5px 0px black;
+  }
 
 .news-publisher {
   font-size: 30px;
