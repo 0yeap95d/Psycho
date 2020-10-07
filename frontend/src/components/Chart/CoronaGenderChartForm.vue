@@ -1,0 +1,104 @@
+<template>
+  <div id="ChartForm">
+    <corona-gender-chart :chart-data="ChartData" />
+    <input id="date" v-model="date" type="date" />
+  </div>
+</template>
+
+<script>
+import CoronaGenderChart from "./CoronaGenderChart";
+import CoronaApi from "../../api/CoronaApi";
+
+export default {
+  components: {
+    CoronaGenderChart,
+  },
+  data: () => {
+    return {
+      date: null,
+      data: null,
+      ChartData: {},
+    };
+  },
+  watch: {
+    date: function () {
+      this.getChart();
+    },
+  },
+  mounted() {
+    // this.startDate = this.getFormatDate(new Date());
+    // this.endDate = this.getFormatDate(new Date());
+    this.date = this.getFormatDate(new Date("2020-09-01"));
+    this.getChart();
+  },
+  methods: {
+    getFormatDate(date) {
+      var year = date.getFullYear();
+      var month = 1 + date.getMonth();
+      month = month >= 10 ? month : "0" + month;
+      var day = date.getDate();
+      day = day >= 10 ? day : "0" + day;
+      return year + "-" + month + "-" + day;
+    },
+    getChart() {
+      let d = this.date.split("-");
+      this.data = {
+        syear: d[0] * 1,
+        smonth: d[1] * 1,
+        sday: d[2] * 1,
+        eyear: d[0] * 1,
+        emonth: d[1] * 1,
+        eday: d[2] * 1,
+        gubun: "성",
+      };
+      this.getDatasets(this.data);
+    },
+    getDatasets(data) {
+      CoronaApi.requestCoronaGenAge(
+        data,
+        (res) => {
+          this.ChartData = {
+            labels: ["남성", "여성"],
+            datasets: [
+              {
+                label: "확진자",
+                backgroundColor: ["#FF5555", "#55FF55"],
+                data: [0, 0],
+              },
+            ],
+          };
+          for (var i = 0; i < res.data.length; i++) {
+            if (res.data[i].gubun == "남성") {
+              this.ChartData.datasets[0].data[0] = res.data[i].confCase;
+              // this.ChartData.datasets[0].data.push(res.data[i].death);
+            } else if (res.data[i].gubun == "여성") {
+              this.ChartData.datasets[0].data[1] = res.data[i].confCase;
+              // this.ChartData.datasets[1].data.push(res.data[i].death);
+            }
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+  },
+};
+/*
+요청 json 형식
+{
+    "syear": 2020, //시작년도
+    "smonth": 9, //시작월
+    "sday": 4, //시작일
+    "eyear": 2020, //끝년도
+    "emonth": 9, //끝월
+    "eday": 4, //끝일
+}
+*/
+</script>
+
+<style scoped>
+#ChartForm {
+  border: 1px solid gray;
+}
+</style>

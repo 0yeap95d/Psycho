@@ -23,7 +23,7 @@
         <div v-show="currentTab == 1">
           <v-layout column>
             <span style="font-size:20pt;">사람들은 지금..?</span>
-            <v-divider class="mb-5"></v-divider>
+            <v-divider class="mb-5" />
             <v-list three-line style="max-height: calc(100vh - 260px)" class="overflow-y-auto">
               <v-list-item v-for="(item, i) in items" v-bind:key="i">
                 <img src="../assets/covidRemove.png" height="30px" width="30px" />
@@ -36,13 +36,16 @@
         <div v-show="currentTab == 2">
           <v-layout column>
             <span style="font-size:20pt;">코로나 한눈에 확인하기</span>
-            <v-divider class="mb-5"></v-divider>
-          </v-layout>
-          <v-layout row class="small">
-            <!-- <bar-chart></bar-chart> -->
+            <v-divider class="mb-5" />
             <corona-total-chart-form />
+            <v-layout row wrap justify-center>
+              <corona-age-chart-form />
+              <corona-gender-chart-form />
+              <corona-sido-chart-form />
+            </v-layout>
           </v-layout>
-          <v-layout row>
+          <!-- <v-flex xs3 class="middle"></v-flex> -->
+          <!-- <v-layout row>
             <v-flex xs3 class="middle">
               <doughnut-chart />
             </v-flex>
@@ -52,7 +55,7 @@
             <v-flex xs3 class="middle">
               <doughnut-chart />
             </v-flex>
-          </v-layout>
+          </v-layout>-->
         </div>
       </div>
     </div>
@@ -61,16 +64,22 @@
 
 <script>
 import WordCloud from "../components/WordCloud";
-import DoughnutChart from "../components/Chart/DoughnutChart";
+// import DoughnutChart from "../components/Chart/DoughnutChart";
 // import BarChart from "../components/Chart/BarChart";
 import CoronaTotalChartForm from "../components/Chart/CoronaTotalChartForm";
+import CoronaAgeChartForm from "../components/Chart/CoronaAgeChartForm";
+import CoronaGenderChartForm from "../components/Chart/CoronaGenderChartForm";
+import CoronaSidoChartForm from "../components/Chart/CoronaSidoChartForm";
 
 export default {
   components: {
     WordCloud,
     // BarChart,
-    DoughnutChart,
+    // DoughnutChart,
     CoronaTotalChartForm,
+    CoronaAgeChartForm,
+    CoronaGenderChartForm,
+    CoronaSidoChartForm,
   },
   data() {
     return {

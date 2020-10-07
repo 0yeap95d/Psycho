@@ -18,7 +18,6 @@ import json
     "emonth": 9,
     "eday": 4,
     "gubun": "남"
-    
 }
 '''
 
@@ -55,7 +54,7 @@ def getCovid19GenAgeInfo(request):
         end = end + timedelta(days=1)
 
         data = Covid19GenAgeInfo.objects.filter(
-            createDt__range=(start, end), gubun__istartswith=param['gubun'])
+            createDt__range=(start, end), gubun__icontains=param['gubun'])
         serializer = Covid19GenAgeInfoSerializer(data, many=True)
         return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})
 
@@ -74,6 +73,6 @@ def getCovid19SidoInfo(request):
         end = end + timedelta(days=1)
 
         data = Covid19SidoInfo.objects.filter(
-            createDt__range=(start, end), gubun__istartswith=param['gubun'])
+            createDt__range=(start, end), gubun__icontains=param['gubun'])
         serializer = Covid19SidoInfoSerializer(data, many=True)
         return JsonResponse(serializer.data, safe=False, json_dumps_params={'ensure_ascii': False})

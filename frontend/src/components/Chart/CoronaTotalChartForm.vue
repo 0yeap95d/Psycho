@@ -3,7 +3,6 @@
     <corona-total-chart :chart-data="ChartData" />
     <input id="startDate" v-model="startDate" type="date" />
     <input id="endDate" v-model="endDate" type="date" />
-    <button @click="getChart">확인</button>
   </div>
 </template>
 
@@ -42,6 +41,14 @@ export default {
       },
     };
   },
+  watch: {
+    startDate: function () {
+      this.getChart();
+    },
+    endDate: function () {
+      this.getChart();
+    },
+  },
   mounted() {
     // this.startDate = this.getFormatDate(new Date());
     // this.endDate = this.getFormatDate(new Date());
@@ -70,16 +77,31 @@ export default {
         eday: e[2] * 1,
       };
       this.getDatasets(this.data);
-      this.getDatasets(this.data);
     },
     getDatasets(data) {
       CoronaApi.requestCorona(
         data,
         (res) => {
-          this.ChartData.labels = [];
-          this.ChartData.datasets[0].data = [];
-          this.ChartData.datasets[1].data = [];
-          this.ChartData.datasets[2].data = [];
+          this.ChartData = {
+            labels: [],
+            datasets: [
+              {
+                label: "누적 확진자",
+                backgroundColor: "#FF5555",
+                data: [],
+              },
+              {
+                label: "누적 격리해제",
+                backgroundColor: "#55FF55",
+                data: [],
+              },
+              {
+                label: "누적 사망자",
+                backgroundColor: "#5555FF",
+                data: [],
+              },
+            ],
+          };
           for (var i = 0; i < res.data.length; i++) {
             this.ChartData.labels.push(res.data[i].stateDt);
             this.ChartData.datasets[0].data.push(res.data[i].decideCnt);
@@ -92,26 +114,6 @@ export default {
         }
       );
     },
-    // getDatasets: async function (data) {
-    //   await CoronaApi.requestCorona(
-    //     data,
-    //     (res) => {
-    //       this.ChartData.labels = [];
-    //       this.ChartData.datasets[0].data = [];
-    //       this.ChartData.datasets[1].data = [];
-    //       this.ChartData.datasets[2].data = [];
-    //       for (var i = 0; i < res.data.length; i++) {
-    //         this.ChartData.labels.push(res.data[i].stateDt);
-    //         this.ChartData.datasets[0].data.push(res.data[i].decideCnt);
-    //         this.ChartData.datasets[1].data.push(res.data[i].clearCnt);
-    //         this.ChartData.datasets[2].data.push(res.data[i].deathCnt);
-    //       }
-    //     },
-    //     (error) => {
-    //       console.log(error);
-    //     }
-    //   );
-    // },
   },
 };
 /*
