@@ -1,23 +1,32 @@
 <template>
   <div id="ChartForm">
-    <corona-age-chart :chart-data="ChartData" />
+    <corona-Sido-chart :chart-data="ChartData" :options="options" />
     <input id="date" v-model="date" type="date" />
   </div>
 </template>
 
 <script>
-import CoronaAgeChart from "./CoronaAgeChart";
+import CoronaSidoChart from "./CoronaSidoChart";
 import CoronaApi from "../../api/CoronaApi";
 
 export default {
   components: {
-    CoronaAgeChart,
+    CoronaSidoChart,
   },
   data: () => {
     return {
       date: null,
       data: null,
       ChartData: {},
+      options: {
+        title: {
+          display: true,
+          text: "지역별 현황",
+        },
+        legend: {
+          display: false,
+        },
+      },
     };
   },
   watch: {
@@ -26,7 +35,9 @@ export default {
     },
   },
   mounted() {
-    this.date = this.getFormatDate(new Date("2020-09-01"));
+    let defday = new Date();
+    defday.setDate(defday.getDate() - 1); //하루 전날 데이터를 기본 데이터로
+    this.date = this.getFormatDate(defday);
     this.getChart();
   },
   methods: {
@@ -55,7 +66,6 @@ export default {
       CoronaApi.requestCoronaSido(
         data,
         (res) => {
-          console.log(res);
           this.ChartData = {
             labels: [
               "서울",
@@ -84,41 +94,61 @@ export default {
               },
             ],
           };
+
           for (var i = 0; i < res.data.length; i++) {
-            if (res.data[i].gubun == "서울") {
-              this.ChartData.datasets[0].data[0] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "부산") {
-              this.ChartData.datasets[0].data[1] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "대구") {
-              this.ChartData.datasets[0].data[2] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "인천") {
-              this.ChartData.datasets[0].data[3] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "광주") {
-              this.ChartData.datasets[0].data[4] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "대전") {
-              this.ChartData.datasets[0].data[5] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "울산") {
-              this.ChartData.datasets[0].data[6] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "세종") {
-              this.ChartData.datasets[0].data[7] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "경기") {
-              this.ChartData.datasets[0].data[8] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "강원") {
-              this.ChartData.datasets[0].data[9] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "충북") {
-              this.ChartData.datasets[0].data[10] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "충남") {
-              this.ChartData.datasets[0].data[11] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "전북") {
-              this.ChartData.datasets[0].data[12] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "전남") {
-              this.ChartData.datasets[0].data[13] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "경북") {
-              this.ChartData.datasets[0].data[14] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "경남") {
-              this.ChartData.datasets[0].data[15] = res.data[i].incDec;
-            } else if (res.data[i].gubun == "제주") {
-              this.ChartData.datasets[0].data[16] = res.data[i].incDec;
+            switch (res.data[i].gubun) {
+              case "서울":
+                this.ChartData.datasets[0].data[0] = res.data[i].incDec;
+                break;
+              case "부산":
+                this.ChartData.datasets[0].data[1] = res.data[i].incDec;
+                break;
+              case "대구":
+                this.ChartData.datasets[0].data[2] = res.data[i].incDec;
+                break;
+              case "인천":
+                this.ChartData.datasets[0].data[3] = res.data[i].incDec;
+                break;
+              case "광주":
+                this.ChartData.datasets[0].data[4] = res.data[i].incDec;
+                break;
+              case "대전":
+                this.ChartData.datasets[0].data[5] = res.data[i].incDec;
+                break;
+              case "울산":
+                this.ChartData.datasets[0].data[6] = res.data[i].incDec;
+                break;
+              case "세종":
+                this.ChartData.datasets[0].data[7] = res.data[i].incDec;
+                break;
+              case "경기":
+                this.ChartData.datasets[0].data[8] = res.data[i].incDec;
+                break;
+              case "강원":
+                this.ChartData.datasets[0].data[9] = res.data[i].incDec;
+                break;
+              case "충북":
+                this.ChartData.datasets[0].data[10] = res.data[i].incDec;
+                break;
+              case "충남":
+                this.ChartData.datasets[0].data[11] = res.data[i].incDec;
+                break;
+              case "전북":
+                this.ChartData.datasets[0].data[12] = res.data[i].incDec;
+                break;
+              case "전남":
+                this.ChartData.datasets[0].data[13] = res.data[i].incDec;
+                break;
+              case "경북":
+                this.ChartData.datasets[0].data[14] = res.data[i].incDec;
+                break;
+              case "경남":
+                this.ChartData.datasets[0].data[15] = res.data[i].incDec;
+                break;
+              case "제주":
+                this.ChartData.datasets[0].data[16] = res.data[i].incDec;
+                break;
+              default:
             }
           }
         },

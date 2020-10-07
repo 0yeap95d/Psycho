@@ -1,6 +1,6 @@
 <template>
   <div id="ChartForm">
-    <corona-age-chart :chart-data="ChartData" />
+    <corona-age-chart :chart-data="ChartData" :options="options" />
     <input id="date" v-model="date" type="date" />
   </div>
 </template>
@@ -18,6 +18,15 @@ export default {
       date: null,
       data: null,
       ChartData: {},
+      options: {
+        title: {
+          display: true,
+          text: "연령별 현황",
+        },
+        legend: {
+          display: false,
+        },
+      },
     };
   },
   watch: {
@@ -26,7 +35,9 @@ export default {
     },
   },
   mounted() {
-    this.date = this.getFormatDate(new Date("2020-09-01"));
+    let defday = new Date();
+    defday.setDate(defday.getDate() - 1); //하루 전날 데이터를 기본 데이터로
+    this.date = this.getFormatDate(defday);
     this.getChart();
   },
   methods: {
