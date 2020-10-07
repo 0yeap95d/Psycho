@@ -1,7 +1,7 @@
 import Axios from "axios"
 
-// const apiUrl = "http://localhost:8000/covid19data"
-const apiUrl = "https://j3d203.p.ssafy.io:8000/covid19data"
+// const apiUrl = "http://localhost:8000/api/covid19data"
+const apiUrl = "https://j3d203.p.ssafy.io:8000/api/covid19data"
 
 const requestCorona = (data, callback, errorCallback) => {
   Axios.post(apiUrl + "/Covid19Info", data)
